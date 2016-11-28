@@ -149,15 +149,6 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 echo "<br />";
-$year = date('Y');
-$month = date('m');
-$day = date('d');
 echo "Today is ".$year."-".$month."-".$day;
 echo "<br />";
-if ($day >= 16) {
-  $lottoday = 16;
-}else{
-  $lottoday = 1;
-}
-$lottodate = $year."-".$month."-".$lottoday;
 echo "Lotto Date่ ".$lottodate;
