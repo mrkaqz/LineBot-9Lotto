@@ -93,12 +93,10 @@ if (!is_null($events['events'])) {
           $replyMsg .= ' และรางวัลเลขท้าย 3 ตัว';
         }
 
-        $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย่างนี้ต้องฉลอง","รวยเลยครัช","เลขนี้ท่านได้แต่ใดมา");
+        $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย่างนี้ต้องฉลอง","รวยเลยครัชงานนี้","เลขนี้ท่านได้แต่ใดมา","อย่าลืมแก้บนนะ","รวยไม่รู้ตัว","ระวังเพื่อนยืมนะ","เอาเงินไปฝันดินไว้เลย","รวยครับรวย");
           $replyMsg .= " ".$endword[rand(0,count($endword))];
 
       }
-
-
 
 
 
@@ -133,7 +131,14 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 
-$today = date('Y-m-d');
+$year = date('Y-m-d');
+$month = date('m');
 $day = date('d');
-echo $today;
-echo "Today is ".$today;
+echo "Today is ".$year."-".$month."-".$day;
+if ($day >= 16) {
+  $lottoday = 16;
+}else{
+  $lottoday = 1;
+}
+$lottodate = $year."-".$month."-".$lottoday;
+echo "Lotto Date่ ".$lottodate;
