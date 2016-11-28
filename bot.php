@@ -16,6 +16,10 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+
+      // Get Lotto Check
+      $content = file_get_contents("http://www.glo.or.th/glo_seize/lottary/check_lottary.php");
+      echo $content
 			// Build message to reply back
 
       if ($text == 44) {
