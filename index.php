@@ -5,10 +5,11 @@ $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย
 echo $endword[rand(0,count($endword)-1)];
 echo "<br />";
 
-$text = "อะไรฟระ";
+$text = "ตรวจหวย 385723";
+$number = substr($text,8);
 
 if(strstr($text,"ตรวจหวย ")){
-  echo "OK";
+  echo $number;
 }else{
   echo "Not OK";
 }
