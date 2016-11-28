@@ -6,6 +6,10 @@ $text = "ตรวจหวย​ 326524";
 
 $number = iconv_substr($text,8);
 
+echo $text;
+echo "<br />";
+echo $number;
+
 if(strstr($text,"ตรวจหวย ")){
 
 // Get Lotto Check
