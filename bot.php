@@ -16,6 +16,8 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+			// Lotto
+
 			$number = iconv_substr($text,8);
 
 			if(strstr($text,"ตรวจหวย ")){
@@ -156,7 +158,6 @@ if (!is_null($events['events'])) {
       }
 
 			// Build message to reply back
-			$checknum = "เลขที่ตรวจคือ ".$number;
 
 			$messages = [
 				'type' => 'text',
