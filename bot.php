@@ -44,9 +44,9 @@ if (!is_null($events['events'])) {
       $month = date('m');
       $day = date('d');
       if ($day >= 16) {
-        $lottoday = 16;
+        $lottoday = "16";
       }else{
-        $lottoday = 1;
+        $lottoday = "01";
       }
       $lottodate = $year."-".$month."-".$lottoday;
 
