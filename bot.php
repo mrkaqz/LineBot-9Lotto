@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 
       $post_data = array (
           "kuson" => 1,
-          "ldate" => "$lottodate",
+          "ldate" => "2016-11-16",
           "lnumber" => "$number",
           "c_set" => ""
       );
