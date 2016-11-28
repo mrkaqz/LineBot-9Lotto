@@ -11,7 +11,7 @@ echo "<br />";
 echo $number;
 echo "<br />";
 
-if(strstr($text,"ตรวจหวย ")){
+if(strpos($text,"ตรวจหวย ") !=== false){
 echo "String OK";
 echo "<br />";
 // Get Lotto Check
