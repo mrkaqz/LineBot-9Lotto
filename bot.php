@@ -131,7 +131,7 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 echo "<br />";
-$year = date('Y-m-d');
+$year = date('Y');
 $month = date('m');
 $day = date('d');
 echo "Today is ".$year."-".$month."-".$day;
