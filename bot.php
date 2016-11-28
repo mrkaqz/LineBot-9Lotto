@@ -24,7 +24,7 @@ if (!is_null($events['events'])) {
       $len = strlen($number);
       settype($number, "integer");
 
-      if ( !(($number > 0) and ($number <= 999999) and $len == 6)){
+      if ( !(($number >= 0) and ($number <= 999999) and $len == 6)){
 
 				$errword = array(
 					"เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ",
