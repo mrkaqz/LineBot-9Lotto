@@ -1,8 +1,7 @@
 <?php
 echo "Hello LINE BOT <br />";
 
-$text = "ตรวจหวย​ 326524";
-$text = trim($text);
+$text = "ตรวจหวย​ 000000";
 // Lotto
 
 $number = iconv_substr($text,9);
@@ -12,7 +11,7 @@ echo "<br />";
 echo $number;
 echo "<br />";
 
-if(!strstr($text,"ตรวจหวย ")){
+if(strstr($text,"ตรวจหวย ")){
 echo "String OK";
 echo "<br />";
 // Get Lotto Check
