@@ -2,6 +2,7 @@
 echo "Hello LINE BOT <br />";
 
 $text = "ตรวจหวย​ 326524";
+$text = trim($text);
 // Lotto
 
 $number = iconv_substr($text,8);
