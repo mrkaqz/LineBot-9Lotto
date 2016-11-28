@@ -1,12 +1,22 @@
 <?php
 echo "Hello LINE BOT <br />";
 
+$year = date('Y');
+$month = date('m');
+$day = date('d');
+if ($day >= 16) {
+  $lottoday = "16";
+}else{
+  $lottoday = "01";
+}
+$lottodate = $year."-".$month."-".$lottoday;
+
 $url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
 
 $post_data = array (
     "kuson" => 1,
-    "ldate" => "2016-11-16",
-    "lnumber" => "444444",
+    "ldate" => "$lottodate",
+    "lnumber" => "$number",
     "c_set" => ""
 );
 
