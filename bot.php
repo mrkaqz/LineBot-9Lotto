@@ -19,8 +19,8 @@ if (!is_null($events['events'])) {
       // Get Lotto Check
 
       settype($text, "integer");
-      
-      if ( !(($text >= 0) and ($text <= 999999)) ){
+
+      if ( !(($text > 0) and ($text <= 999999)) ){
         $replyMsg = "เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ";
       }else{
 
