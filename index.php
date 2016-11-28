@@ -9,9 +9,10 @@ $number = iconv_substr($text,8);
 echo $text;
 echo "<br />";
 echo $number;
+echo "<br />";
 
 if(strstr($text,"ตรวจหวย ")){
-
+echo "String OK";
 // Get Lotto Check
 $len = strlen($number);
 settype($number, "integer");
