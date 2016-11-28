@@ -6,7 +6,7 @@ echo $endword[rand(0,count($endword)-1)];
 echo "<br />";
 
 $text = "ตรวจหวย 385723";
-$number = substr($text,8);
+$number = iconv_substr($text,8);
 
 if(strstr($text,"ตรวจหวย ")){
   echo $number;
