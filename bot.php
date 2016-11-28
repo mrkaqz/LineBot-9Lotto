@@ -156,11 +156,12 @@ if (!is_null($events['events'])) {
       }
 
 			// Build message to reply back
+			$checknum = "เลขที่ตรวจคือ ".$number;
 
 			$messages = [
 				{
 				'type' => 'text',
-				'text' => 'เลขที่ตรวจคือ '.$number
+				'text' => $checknum
 				},
 				{
 				'type' => 'text',
