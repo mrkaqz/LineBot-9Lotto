@@ -130,11 +130,12 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
-
+echo "<br />";
 $year = date('Y-m-d');
 $month = date('m');
 $day = date('d');
 echo "Today is ".$year."-".$month."-".$day;
+echo "<br />";
 if ($day >= 16) {
   $lottoday = 16;
 }else{
