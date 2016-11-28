@@ -13,9 +13,13 @@ echo "<br />";
 
 if(!strstr($text,"ตรวจหวย ")){
 echo "String OK";
+echo "<br />";
 // Get Lotto Check
 $len = strlen($number);
 settype($number, "integer");
+
+echo $len;
+echo "<br />";
 
 if ( !(($number >= 0) and ($number <= 999999) and $len == 6)){
 
