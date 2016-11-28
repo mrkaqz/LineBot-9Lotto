@@ -20,6 +20,8 @@ if (!is_null($events['events'])) {
 
       if ($text == 44) {
         $replyMsg = 'คุณถูกหวย รางวัลเลขท้ายสองตัว ดีใจด้วยนะ!!';
+      }else{
+        $replyMsg = 'คุณโดนหวยแดก!!!';
       }
 
 			$messages = [
