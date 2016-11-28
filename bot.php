@@ -16,7 +16,6 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-			$text = "ตรวจหวย 385723fsadfsakdlj";
 			$number = iconv_substr($text,8);
 
 			if(strstr($text,"ตรวจหวย ")){
