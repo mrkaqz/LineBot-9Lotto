@@ -5,7 +5,7 @@ $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย
 echo $endword[rand(0,count($endword)-1)];
 echo "<br />";
 
-$text = "ตรวจหวย 385723";
+$text = "ตรวจหวย 385723fsadfsakdlj";
 $number = iconv_substr($text,8);
 
 if(strstr($text,"ตรวจหวย ")){
