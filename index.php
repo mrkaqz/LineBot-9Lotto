@@ -5,7 +5,7 @@ $text = "ตรวจหวย​ 326524";
 $text = trim($text);
 // Lotto
 
-$number = iconv_substr($text,8);
+$number = iconv_substr($text,9);
 
 echo $text;
 echo "<br />";
