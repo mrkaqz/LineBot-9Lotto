@@ -46,7 +46,13 @@ if (!is_null($events['events'])) {
       }
       else {
       $replyMsg = "เฮ้ยๆๆๆๆ ดูท่าจะรวยละ";
+        if(strstr($output,"ท่านถูกรางวัลที่ 1"))
+        {
+          $replyMsg = 'เฮ้ย รางวัลที่ 1 เลยเฟร้ย';
+        }
       }
+
+
 
 			// Build message to reply back
 
