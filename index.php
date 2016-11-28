@@ -10,5 +10,6 @@ if ($day >= 16) {
   $lottoday = 1;
 }
 $lottodate = $year."-".$month."-".$lottoday;
-echo $year."=".$month."=".$day;
+echo $year."-".$month."-".$day;
+echo "<br />";
 echo $lottodate;
