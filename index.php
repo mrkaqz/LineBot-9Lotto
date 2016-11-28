@@ -4,7 +4,7 @@ echo "Hello LINE BOT <br />";
 $text = 'ตรวจหวย 000000';
 // Lotto
 
-$number = iconv_substr($text,9);
+$number = iconv_substr($text,8);
 
 echo $text;
 echo "<br />";
