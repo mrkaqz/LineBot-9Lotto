@@ -11,7 +11,7 @@ echo "<br />";
 echo $number;
 echo "<br />";
 
-if(strstr($text,"ตรวจหวย ")){
+if(!strstr($text,"ตรวจหวย ")){
 echo "String OK";
 // Get Lotto Check
 $len = strlen($number);
