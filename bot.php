@@ -122,5 +122,3 @@ echo "OK";
 $today = date('Y-m-d');
 $day = date('d');
 echo $today;
-if ()
-$lottodate
