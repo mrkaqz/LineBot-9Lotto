@@ -16,14 +16,39 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+      // Get Lotto Check
+      $url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
+
+      $post_data = array (
+          "kuson" => 1,
+          "ldate" => "2016-11-16",
+          "lnumber" => "$text",
+          "c_set" => ""
+      );
+
+      $ch = curl_init();
+
+      curl_setopt($ch, CURLOPT_URL, $url);
+
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+      // we are doing a POST request
+      curl_setopt($ch, CURLOPT_POST, 1);
+      // adding the post variables to the request
+      curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+
+      $output = curl_exec($ch);
+
+      curl_close($ch);
+
+      if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
+      {
+      $replyMsg = 'เสียใจด้วยนะ โดนหวยแหลก!!';
+      }
+      else {
+      $replyMsg = "เฮ้ยๆๆๆๆ ดูท่าจะรวยละ";
+      }
 
 			// Build message to reply back
-
-      if ($text == 44) {
-        $replyMsg = 'คุณถูกหวย รางวัลเลขท้ายสองตัว ดีใจด้วยนะ!!';
-      }else{
-        $replyMsg = 'คุณโดนหวยแดก!!!';
-      }
 
 			$messages = [
 				'type' => 'text',
@@ -53,35 +78,3 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
-
-// Get Lotto Check
-$url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
-
-$post_data = array (
-    "kuson" => 1,
-    "ldate" => "2016-11-16",
-    "lnumber" => "000000",
-    "c_set" => ""
-);
-
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, $url);
-
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// we are doing a POST request
-curl_setopt($ch, CURLOPT_POST, 1);
-// adding the post variables to the request
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
-$output = curl_exec($ch);
-
-curl_close($ch);
-
-if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
-{
-echo "Found";
-}
-else {
-echo "Not Found";
-}
