@@ -1,15 +1,27 @@
 <?php
 echo "Hello LINE BOT <br />";
 
-$year = rand(2015,2018);
-$month = rand(01,12);
-$day = rand(01,31);
-if ($day >= 16) {
-  $lottoday = "16";
-}else{
-  $lottoday = "01";
-}
-$lottodate = $year."-".$month."-".$lottoday;
-echo $year."-".$month."-".$day;
-echo "<br />";
-echo $lottodate;
+$url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
+
+$post_data = array (
+    "kuson" => 1,
+    "ldate" => "2016-11-16",
+    "lnumber" => "444444",
+    "c_set" => ""
+);
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL, $url);
+
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// we are doing a POST request
+curl_setopt($ch, CURLOPT_POST, 1);
+// adding the post variables to the request
+curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+
+$output = curl_exec($ch);
+
+curl_close($ch);
+
+echo $output

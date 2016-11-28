@@ -54,7 +54,7 @@ if (!is_null($events['events'])) {
 
       $post_data = array (
           "kuson" => 1,
-          "ldate" => "2016-11-16",
+          "ldate" => "$lottodate",
           "lnumber" => "$number",
           "c_set" => ""
       );
@@ -72,6 +72,7 @@ if (!is_null($events['events'])) {
       $output = curl_exec($ch);
 
       curl_close($ch);
+
       $replyMsg = "";
 
 
