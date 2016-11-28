@@ -168,6 +168,3 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 echo "<br />";
-echo "Today is ".$year."-".$month."-".$day;
-echo "<br />";
-echo "Lotto Date่ ".$lottodate;
