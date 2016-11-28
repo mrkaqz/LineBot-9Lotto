@@ -18,13 +18,22 @@ if (!is_null($events['events'])) {
 
       // Get Lotto Check
 
-      $today = date('Y-m-d');
+      // Get Lotto Date
+      $year = date('Y');
+      $month = date('m');
+      $day = date('d');
+      if ($day >= 16) {
+        $lottoday = 16;
+      }else{
+        $lottoday = 1;
+      }
+      $lottodate = $year."-".$month."-".$lottoday;
 
       $url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
 
       $post_data = array (
           "kuson" => 1,
-          "ldate" => "2016-11-16",
+          "ldate" => "$lottodate",
           "lnumber" => "$text",
           "c_set" => ""
       );
