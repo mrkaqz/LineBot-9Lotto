@@ -160,12 +160,12 @@ if (!is_null($events['events'])) {
 
 			$messages = [
 				{
-				'type' => 'text',
-				'text' => $checknum
+				'type':'text',
+				'text':$checknum
 				},
 				{
-				'type' => 'text',
-				'text' => $replyMsg
+				'type':'text',
+				'text':$replyMsg
 				}
 			];
 
