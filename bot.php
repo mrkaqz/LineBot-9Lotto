@@ -77,7 +77,6 @@ if (!is_null($events['events'])) {
 
       $replyMsg = "";
 
-
       if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
       {
 
