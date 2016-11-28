@@ -17,9 +17,14 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
+
+      if ($text == 44) {
+        $replyMsg = 'คุณถูกหวย รางวัลเลขท้ายสองตัว ดีใจด้วยนะ!!';
+      }
+
 			$messages = [
 				'type' => 'text',
-				'text' => 'คุณถูกหวยแดก!!!'
+				'text' => $replyMsg
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
