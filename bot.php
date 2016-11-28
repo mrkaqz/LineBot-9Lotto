@@ -25,6 +25,7 @@ if (!is_null($events['events'])) {
       settype($number, "integer");
 
       if ( !(($number > 0) and ($number <= 999999) and $len == 6)){
+
 				$errword = array(
 					"เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ",
 					"รู้จักหวยมั๊ย เลข 6 หลักอะ เคยซื้อมั๊ย?",
@@ -32,7 +33,8 @@ if (!is_null($events['events'])) {
 					"สงสัยจะไม่เคยเล่นหวย ใส่เลขยังไม่ถูกเลย",
 					"สะกดคำว่า หวย เป็นมั๊ย ห่วย!! เลข 6 หลักเท่านั้นจะ"
 				);
-          $replyMsg = $errword[rand(0,count($errword)-1)];
+        $replyMsg = $errword[rand(0,count($errword)-1)];
+
       }else{
 
       // Get Lotto Date

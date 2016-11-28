@@ -5,11 +5,12 @@ $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย
 echo $endword[rand(0,count($endword)-1)];
 echo "<br />";
 
-$text = "ตรวจหวย 385723fsadfsakdlj";
-$number = iconv_substr($text,8);
-
-if(strstr($text,"ตรวจหวย ")){
-  echo $number;
-}else{
-  echo "Not OK";
-}
+$errword = array(
+  "เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ",
+  "รู้จักหวยมั๊ย เลข 6 หลักอะ เคยซื้อมั๊ย?",
+  "ต้องให้บอกมั๊ยว่าหวยมันเป็นเลข 6 หลัก",
+  "สงสัยจะไม่เคยเล่นหวย ใส่เลขยังไม่ถูกเลย",
+  "สะกดคำว่า หวย เป็นมั๊ย ห่วย!! เลข 6 หลักเท่านั้นจะ"
+);
+$replyMsg = $errword[rand(0,count($errword)-1)];
+echo $replyMsg;
