@@ -16,11 +16,16 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
-      // Get Lotto Check
-      $len = strlen($text);
-      settype($text, "integer");
+			$text = "ตรวจหวย 385723fsadfsakdlj";
+			$number = iconv_substr($text,8);
 
-      if ( !(($text > 0) and ($text <= 999999) and $len == 6)){
+			if(strstr($text,"ตรวจหวย ")){
+
+      // Get Lotto Check
+      $len = strlen($number);
+      settype($number, "integer");
+
+      if ( !(($number > 0) and ($number <= 999999) and $len == 6)){
         $replyMsg = "เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ";
       }else{
 
@@ -40,7 +45,7 @@ if (!is_null($events['events'])) {
       $post_data = array (
           "kuson" => 1,
           "ldate" => "$lottodate",
-          "lnumber" => "$text",
+          "lnumber" => "$number",
           "c_set" => ""
       );
 
@@ -58,7 +63,6 @@ if (!is_null($events['events'])) {
 
       curl_close($ch);
       $replyMsg = "";
-
 
 
       if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
@@ -111,7 +115,19 @@ if (!is_null($events['events'])) {
           $replyMsg .= ' และรางวัลเลขท้าย 3 ตัว';
         }
 
-        $endword = array("เลขเด็ดจริงๆ", "รวย!!!", "อย่างนี้ต้องฉลอง","รวยเลยครัชงานนี้","เลขนี้ท่านได้แต่ใดมา","อย่าลืมแก้บนนะ","รวยไม่รู้ตัว","ระวังเพื่อนยืมนะ","เอาเงินไปฝันดินไว้เลย","รวยครับรวย");
+        $endword = array(
+					"เลขเด็ดจริงๆ",
+					"รวย!!!",
+					"อย่างนี้ต้องฉลอง",
+					"รวยเลยครัชงานนี้",
+					"เลขนี้ท่านได้แต่ใดมา",
+					"อย่าลืมแก้บนนะ",
+					"รวยไม่รู้ตัว",
+					"ระวังเพื่อนยืมนะ",
+					"เอาเงินไปฝันดินไว้เลย",
+					"รวยครับรวย",
+					"ชิตังเม โป้ง รวย!"
+				);
           $replyMsg .= " ".$endword[rand(0,count($endword))];
 
       }
@@ -144,6 +160,9 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+
+		}
+
 		}
 	}
 }
