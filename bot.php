@@ -17,6 +17,9 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
       // Get Lotto Check
+
+      $today = date('Y-m-d');
+
       $url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
 
       $post_data = array (
@@ -84,3 +87,6 @@ if (!is_null($events['events'])) {
 	}
 }
 echo "OK";
+
+$today = date('Y-m-d');
+echo $today;
