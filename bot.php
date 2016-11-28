@@ -60,7 +60,7 @@ $url = "http://www.glo.or.th/glo_seize/lottary/check_lottary.php";
 $post_data = array (
     "kuson" => 1,
     "ldate" => "2016-11-16",
-    "lnumber" => "000044",
+    "lnumber" => "000000",
     "c_set" => ""
 );
 
@@ -78,4 +78,10 @@ $output = curl_exec($ch);
 
 curl_close($ch);
 
-echo $output;
+if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
+{
+echo "Found";
+}
+else {
+echo "Not Found";
+}
