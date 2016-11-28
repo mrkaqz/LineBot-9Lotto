@@ -18,6 +18,12 @@ if (!is_null($events['events'])) {
 
       // Get Lotto Check
 
+      settype($text, "integer");
+      
+      if ( !(($text >= 0) and ($text <= 999999)) ){
+        $replyMsg = "เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ";
+      }else{
+
       // Get Lotto Date
       $year = date('Y');
       $month = date('m');
@@ -52,6 +58,9 @@ if (!is_null($events['events'])) {
 
       curl_close($ch);
       $replyMsg = "";
+
+
+
       if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
       {
       $replyMsg .= 'เสียใจด้วยนะ โดนหวยแหลก!! งวดหน้าเอาใหม่นะจ๊ะ';
@@ -107,7 +116,7 @@ if (!is_null($events['events'])) {
 
       }
 
-
+      }
 
 			// Build message to reply back
 
