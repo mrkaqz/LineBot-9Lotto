@@ -159,14 +159,8 @@ if (!is_null($events['events'])) {
 			$checknum = "เลขที่ตรวจคือ ".$number;
 
 			$messages = [
-				{
-				'type':'text',
-				'text':$checknum
-				},
-				{
-				'type':'text',
-				'text':$replyMsg
-				}
+				'type' => 'text',
+				'text' => $replyMsg
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
