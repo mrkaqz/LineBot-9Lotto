@@ -27,7 +27,7 @@ if (!is_null($events['events'])) {
 			$value = $number;
 	    settype($value, "integer");
 
-      if ( (($value >= 0) and ($value <= 999999) and $len == 6)){
+      if ( !(($value >= 0) and ($value <= 999999) and $len == 6)){
 
 				$errword = array(
 					"เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ",
