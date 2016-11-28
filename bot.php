@@ -17,10 +17,10 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
       // Get Lotto Check
-
+      $len = strlen($text);
       settype($text, "integer");
 
-      if ( !(($text > 0) and ($text <= 999999) and strlen($text) == 6)){
+      if ( !(($text > 0) and ($text <= 999999) and $len == 6)){
         $replyMsg = "เดี๋ยวปั๊ดเหนี่ยวเลย ใส่ตัวเลข 6 หลักเท่านั้นนะจ๊ะ ".$text;
       }else{
 
