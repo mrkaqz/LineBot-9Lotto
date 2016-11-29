@@ -183,19 +183,19 @@ if (!is_null($events['events'])) {
 			if(strstr($text,"เรียงเบอร์")){
 
 				// Get RSS to JSON content
-				$content = file_get_contents('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Frssfeeds.sanook.com%2Frss%2Ffeeds%2Fsanook%2Fnews.lotto.xml');
+				$lcontent = file_get_contents('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Frssfeeds.sanook.com%2Frss%2Ffeeds%2Fsanook%2Fnews.lotto.xml');
 				// Parse JSON
-				$events = json_decode($content, true);
+				$levents = json_decode($lcontent, true);
 				// Validate parsed JSON data
 
 				for ($i = 0; $i < 3; $i++) {
 
-				  $replyMsg .= "งวดวันที่: ".substr($events['items'][$i]['pubDate'],0,10);
+				  $replyMsg .= "งวดวันที่: ".substr($levents['items'][$i]['pubDate'],0,10);
 				  $replyMsg .= chr(10);
-				  $replyMsg .= "Header: ".$events['items'][$i]['guid'];
+				  $replyMsg .= "Header: ".$levents['items'][$i]['guid'];
 				  $replyMsg .= chr(10);
 				  $replyMsg .= "ผลรางวัล:".chr(10);
-				  $replyMsg .= str_replace('<br>',chr(10),$events['items'][$i]['content']);
+				  $replyMsg .= str_replace('<br>',chr(10),$levents['items'][$i]['content']);
 				}
 			}
 
