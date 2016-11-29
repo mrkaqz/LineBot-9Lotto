@@ -34,7 +34,7 @@ if (!is_null($events['events'])) {
 
 			$replyMsg = $uname." ";
 
-			$debugmsg .= $events;
+			$debugmsg .= $content;
 
 
 			// Lotto
