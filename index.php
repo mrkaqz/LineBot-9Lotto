@@ -6,6 +6,6 @@ $content = file_get_contents('https://api.rss2json.com/v1/api.json?rss_url=http%
 // Parse JSON
 $events = json_decode($content, true);
 // Validate parsed JSON data
-if (!is_null($events['events'])) {
+if ($events['status'] == "OK") {
   echo $content;
 }
