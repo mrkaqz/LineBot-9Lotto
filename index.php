@@ -1,53 +1,10 @@
 <?php
 echo "Hello LINE BOT <br />";
 
-$access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
+$result = '{"displayName":"Ron","userId":"Ub84ba9e603c59ba5cd8f1b76a03036a8","pictureUrl":"http://obs.line-apps.com/ch/v2/p/ub754ea225e4db2513819979fd38deeb3/1359310573658","statusMessage":"Just need to wake up from a bad dream."}';
 
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-// Validate parsed JSON data
-if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-      // Get User ID
-      $userid = $event['source']['userId'];
+$jevents = json_decode($result, true);
 
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $text
-			];
+$uname = $jevent['displayName'];
 
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
-		}
-	}
-}
-echo "OK";
-echo "<br />";
-echo "User ID : ",$userid;
+echo $uname;
