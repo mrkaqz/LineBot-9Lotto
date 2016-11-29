@@ -11,13 +11,13 @@ $events = json_decode($content, true);
   echo "<br />";
   echo "<br />";
 
-for ($i = 0; $i <= 10; $i++) {
+for ($i = 0; $i < 10; $i++) {
 
   echo "Pub Date: ".$events['items'][$i]['pubDate'];
   echo "<br />";
   echo "Header: ".$events['items'][$i]['guid'];
   echo "<br />";
-  echo "Lotto: ".$events['items'][$i]['content'];
+  echo "Lotto Result: <br />".$events['items'][$i]['content'];
   echo "<br />";
   echo "<br />";
 
