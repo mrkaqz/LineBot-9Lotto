@@ -5,6 +5,6 @@ $result = '{"displayName":"Ron","userId":"Ub84ba9e603c59ba5cd8f1b76a03036a8","pi
 
 $jevents = json_decode($result, true);
 
-$uname = $jevent['displayName'];
+$uname = $jevents['displayName'];
 
 echo $uname;
