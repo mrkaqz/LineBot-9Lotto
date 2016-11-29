@@ -1,6 +1,6 @@
 <?php
 $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
-
+$debugmsg ="";
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -33,6 +33,9 @@ if (!is_null($events['events'])) {
 			$uname = $uevents['displayName'];
 
 			$replyMsg = $uname." ";
+
+			$debugmsg .= $uresult;
+
 
 			// Lotto
 
@@ -172,6 +175,9 @@ if (!is_null($events['events'])) {
 
       }
 
+			if(strstr($text,"debug ")){
+				$replyMsg .= " debug ".$debugmsg;
+			}
 			// Build message to reply back
 
 			$messages = [
