@@ -10,4 +10,13 @@ $events = json_decode($content, true);
   echo "status is ".$events['status'];
   echo "<br />";
 
-  echo $events['items'][1]['pubDate'];
+for ($i = 0; $i <= 10; $i++) {
+
+  echo "Pub Date: ".$events['items'][i]['pubDate'];
+  echo "<br />";
+  echo "Pub Date: ".$events['items'][i]['guid'];
+  echo "<br />";
+  echo "Pub Date: ".$events['items'][i]['content'];
+  echo "<br />";
+  echo "<br />";
+}
