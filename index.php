@@ -17,7 +17,8 @@ for ($i = 0; $i < 10; $i++) {
   echo chr(10);
   echo "Header: ".$events['items'][$i]['guid'];
   echo chr(10);
-  echo "ผลรางวัล:".chr(10).$events['items'][$i]['content'];
+  echo "ผลรางวัล:".chr(10);
+  echo str_replace('<br>',chr(10),$events['items'][$i]['content']);
   echo chr(10);
   echo chr(10);
 
