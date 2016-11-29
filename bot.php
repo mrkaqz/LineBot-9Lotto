@@ -225,7 +225,7 @@ if (!is_null($events['events'])) {
 			echo $result;
 
 			$jevents = json_decode($result, true);
-			$uname = $jevent['displayName'];
+			$uname = $jevents['displayName'];
 
 			if(strstr($text,"debug ")){
 
