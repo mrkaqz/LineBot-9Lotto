@@ -227,13 +227,12 @@ if (!is_null($events['events'])) {
 			$jevents = json_decode($result, true);
 
 
-
 			if(strstr($text,"debug ")){
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $jevent['displayName'];
+				'text' => $jevent['displayName']
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
