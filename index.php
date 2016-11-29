@@ -14,11 +14,11 @@ $events = json_decode($content, true);
 for ($i = 0; $i < 10; $i++) {
 
   echo "งวดวันที่: ".substr($events['items'][$i]['pubDate'],0,10);
-  echo "<br />";
+  echo chr(10);
   echo "Header: ".$events['items'][$i]['guid'];
-  echo "<br />";
-  echo "ผลรางวัล: <br />".$events['items'][$i]['content'];
-  echo "<br />";
-  echo "<br />";
+  echo chr(10);
+  echo "ผลรางวัล:".chr(10).$events['items'][$i]['content'];
+  echo chr(10);
+  echo chr(10);
 
 }
