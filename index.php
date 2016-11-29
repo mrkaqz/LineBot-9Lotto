@@ -1,10 +1,18 @@
 <?php
 echo "Hello LINE BOT <br />";
 
-$result = '{"displayName":"Ron","userId":"Ub84ba9e603c59ba5cd8f1b76a03036a8","pictureUrl":"http://obs.line-apps.com/ch/v2/p/ub754ea225e4db2513819979fd38deeb3/1359310573658","statusMessage":"Just need to wake up from a bad dream."}';
+$access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
+$messageId= '5275232700369';
 
-$jevents = json_decode($result, true);
+$url = 'https://api.line.me/v2/bot/message/'.$messageId.'/content';
 
-$uname = $jevents['displayName'];
+$headers = array('Authorization: Bearer ' . $access_token);
 
-echo $uname;
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+$result = curl_exec($ch);
+curl_close($ch);
+
+echo $result;
