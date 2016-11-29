@@ -222,8 +222,9 @@ if (!is_null($events['events'])) {
 
 				$replyMsg .= "งวดวันที่: ".substr($levents['items'][$i]['pubDate'],0,10);
 				$replyMsg .= chr(10);
-				$replyMsg .= "ผลรางวัล:".chr(10);
-				$replyMsg .= str_replace('<br>',chr(10),$levents['items'][$i]['content']);
+				$replyMsg .= str_replace('<br> ',chr(10),$levents['items'][$i]['content']);
+				$replyMsg .= chr(10);
+				$replyMsg .= chr(10);
 			}
 
 			// Build message to reply back
