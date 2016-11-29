@@ -13,7 +13,7 @@ $events = json_decode($content, true);
 
 for ($i = 0; $i < 10; $i++) {
 
-  echo "Pub Date: ".$events['items'][$i]['pubDate'];
+  echo "Pub Date: ".substr($events['items'][$i]['pubDate'],0,9);
   echo "<br />";
   echo "Header: ".$events['items'][$i]['guid'];
   echo "<br />";
