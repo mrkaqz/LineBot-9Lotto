@@ -13,11 +13,11 @@ $events = json_decode($content, true);
 
 for ($i = 0; $i < 10; $i++) {
 
-  echo "Pub Date: ".substr($events['items'][$i]['pubDate'],0,9);
+  echo "งวดวันที่: ".substr($events['items'][$i]['pubDate'],0,10);
   echo "<br />";
   echo "Header: ".$events['items'][$i]['guid'];
   echo "<br />";
-  echo "Lotto Result: <br />".$events['items'][$i]['content'];
+  echo "ผลรางวัล: <br />".$events['items'][$i]['content'];
   echo "<br />";
   echo "<br />";
 
