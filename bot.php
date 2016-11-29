@@ -208,7 +208,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-      // Get User ID
+      // Get User ID and User Name
       $userid = $event['source']['userId'];
 
 			$url = 'https://api.line.me/v2/bot/profile/'.$userid;
@@ -224,13 +224,16 @@ if (!is_null($events['events'])) {
 
 			echo $result;
 
+			$jevents = json_decode($result, true);
+
+
 
 			if(strstr($text,"debug ")){
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => $result
+				'text' => $jevent['displayName'];
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
