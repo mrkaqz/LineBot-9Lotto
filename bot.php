@@ -213,10 +213,11 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
+			$replyMsg =	'วิธีตรวจหวยงวดล่าสุด'.chr(10).'ให้พิมพ์คำว่า ตรวจหวย เว้นวรรค ตามด้วยตัวเลข 6 หลัก เช่น'.chr(10).'"ตรวจหวย 123456"';
 
 			$messages = [
 				'type' => 'text',
-				'text' => 'วิธีตรวจหวยงวดล่าสุด \r\n ให้พิมพ์คำว่า ตรวจหวย เว้นวรรค ตามด้วยตัวเลข 6 หลัก เช่น chr(10) "ตรวจหวย 123456"'
+				'text' => $replyMsg
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
