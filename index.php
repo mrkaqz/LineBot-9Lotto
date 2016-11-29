@@ -1,18 +1,11 @@
 <?php
 echo "Hello LINE BOT <br />";
 
-$access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
-$messageId= '5275293208431';
-
-$url = 'https://api.line.me/v2/bot/message/5275293208431/content';
-
-$headers = array('Authorization: Bearer ' . $access_token);
-
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-$result = curl_exec($ch);
-curl_close($ch);
-
-echo $result;
+// Get POST body content
+$content = file_get_contents('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Frssfeeds.sanook.com%2Frss%2Ffeeds%2Fsanook%2Fnews.lotto.xml');
+// Parse JSON
+$events = json_decode($content, true);
+// Validate parsed JSON data
+if (!is_null($events['events'])) {
+  echo $content;
+}
