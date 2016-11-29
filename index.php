@@ -4,7 +4,7 @@ echo "Hello LINE BOT <br />";
 $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
 $messageId= '5275293208431';
 
-$url = 'https://api.line.me/v2/bot/message/'.$messageId.'/content';
+$url = 'https://api.line.me/v2/bot/message/5275293208431/content';
 
 $headers = array('Authorization: Bearer ' . $access_token);
 
