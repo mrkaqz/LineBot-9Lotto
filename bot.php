@@ -15,6 +15,24 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			// Get User ID and User Name
+      $userid = $event['source']['userId'];
+
+			$uurl = 'https://api.line.me/v2/bot/profile/'.$userid;
+
+			$uheaders = array('Authorization: Bearer ' . $access_token);
+
+			$uch = curl_init($uurl);
+			curl_setopt($uch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($uch, CURLOPT_HTTPHEADER, $uheaders);
+			curl_setopt($uch, CURLOPT_FOLLOWLOCATION, 1);
+			$uresult = curl_exec($uch);
+			curl_close($uch);
+
+			$uevents = json_decode($uresult, true);
+			$uname = $uevents['displayName'];
+
+			$replyMsg = $uname." ";
 
 			// Lotto
 
@@ -38,7 +56,7 @@ if (!is_null($events['events'])) {
 					"หวยมันเป็นเลข 6 ตัวนะจ๊ะ",
 				  "อย่ามาทำเป็นเล่นนะ หวยนี่เรื่องใหญ่ เลข 6 หลักรู้จักมั๊ย!"
 				);
-        $replyMsg = $errword[rand(0,count($errword)-1)];
+        $replyMsg .= $errword[rand(0,count($errword)-1)];
 
       }else{
 
@@ -65,18 +83,15 @@ if (!is_null($events['events'])) {
       $ch = curl_init();
 
       curl_setopt($ch, CURLOPT_URL, $url);
-
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
       // we are doing a POST request
       curl_setopt($ch, CURLOPT_POST, 1);
       // adding the post variables to the request
       curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
       $output = curl_exec($ch);
 
       curl_close($ch);
 
-      $replyMsg = "";
 
       if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
       {
@@ -90,7 +105,7 @@ if (!is_null($events['events'])) {
 					"โดนกินตามเคย เอาให้มันแม่นๆหน่อยสิคราวหน้า",
 				  "อย่าเสียใจไป งวดหน้าอาจจะถูกก็ได้ อย่าเพิ่งสิ้นหวัง"
 				);
-        $replyMsg = $fword[rand(0,count($fword)-1)];
+        $replyMsg .= $fword[rand(0,count($fword)-1)];
 
       }
       else {
@@ -193,70 +208,3 @@ echo "OK";
 echo "<br />";
 
 // Debug Zone
-
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-// Validate parsed JSON data
-if (!is_null($events['events'])) {
-	// Loop through each event
-	foreach ($events['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-      // Get User ID and User Name
-      $userid = $event['source']['userId'];
-
-			$url = 'https://api.line.me/v2/bot/profile/'.$userid;
-
-			$headers = array('Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result;
-
-			$jevents = json_decode($result, true);
-			$uname = $jevents['displayName'];
-
-			if(strstr($text,"debug ")){
-
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => $uname
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
-
-		}
-
-		}
-	}
-}
