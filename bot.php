@@ -180,7 +180,7 @@ if (!is_null($events['events'])) {
 				$replyMsg .= " debug ".$debugmsg;
 			}
 
-			if(strstr($text,"เรียงเบอร์")){
+			if(strstr($text,"check lotto")){
 
 				// Get RSS to JSON content
 				$lcontent = file_get_contents('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Frssfeeds.sanook.com%2Frss%2Ffeeds%2Fsanook%2Fnews.lotto.xml');
@@ -191,8 +191,6 @@ if (!is_null($events['events'])) {
 				for ($i = 0; $i < 3; $i++) {
 
 				  $replyMsg .= "งวดวันที่: ".substr($levents['items'][$i]['pubDate'],0,10);
-				  $replyMsg .= chr(10);
-				  $replyMsg .= "Header: ".$levents['items'][$i]['guid'];
 				  $replyMsg .= chr(10);
 				  $replyMsg .= "ผลรางวัล:".chr(10);
 				  $replyMsg .= str_replace('<br>',chr(10),$levents['items'][$i]['content']);
