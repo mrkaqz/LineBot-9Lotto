@@ -1,6 +1,7 @@
 <?php
 $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
-$debugmsg ="";
+$debugmsg = "";
+$replyMsg = "";
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -15,7 +16,7 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			// Get User ID and User Name
+			/* Get User ID and User Name
       $userid = $event['source']['userId'];
 
 			$uurl = 'https://api.line.me/v2/bot/profile/'.$userid;
@@ -32,10 +33,10 @@ if (!is_null($events['events'])) {
 			$uevents = json_decode($uresult, true);
 			$uname = $uevents['displayName'];
 
-			$replyMsg = $uname." ";
+			$replyMsg .= $uname." ";
+			*/
 
 			$debugmsg .= $content;
-
 
 			// Lotto
 
