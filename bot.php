@@ -217,12 +217,27 @@ if (!is_null($events['events'])) {
 
 		}
 
-		if(strstr($text,"เรียงเบอร์")){
+		if(strstr($text,"เรียงเบอร์") or (strstr($text,"เรียงเบอร์ ")){
+
+			if(strstr($text,"เรียงเบอร์")){
+				$kurl = 'http://lottery.kapook.com/'
+			}
+
+			if((strstr($text,"เรียงเบอร์ ")){
+
+				$kdate = iconv_substr($text,11);
+
+				$kday = iconv_substr($text,11,2);
+				$kmonth = iconv_substr($text,13,2);
+				$kyear = iconv_substr($text,15,4);
+
+				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyear-543.'-'.$kmonth.'-'.$kday;
+			}
 
 			// Get Lotto Data from Kapook
 			$dom = new DOMDocument();
 	    libxml_use_internal_errors(true);
-	    $dom->loadHTMLFile('http://lottery.kapook.com/');
+	    $dom->loadHTMLFile($kurl);
 
 	    //งวด
 	    $replyMsg .= "งวดวันที่ ";
