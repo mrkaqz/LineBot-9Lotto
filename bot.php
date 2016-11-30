@@ -3,7 +3,7 @@ $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5Gjt
 $debugmsg = "";
 $replyMsg = "";
 
-function sendreply($msg) {
+function sendreply($msg,$Token) {
 
 	$messages = [
 		'type' => 'text',
@@ -13,7 +13,7 @@ function sendreply($msg) {
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
-		'replyToken' => $replyToken,
+		'replyToken' => $Token,
 		'messages' => [$messages],
 	];
 	$post = json_encode($data);
@@ -365,7 +365,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$replyMsg =	'วิธีตรวจหวยงวดล่าสุด'.chr(10).'ให้พิมพ์คำว่า ตรวจหวย เว้นวรรค ตามด้วยตัวเลข 6 หลัก เช่น'.chr(10).'"ตรวจหวย 123456"'.chr(10).chr(10).'พิมพ์ "เรียงเบอร์" เพื่อดูผล 3 งวดล่าสุด';
 
-			sendreply($replyMsg);
+			sendreply($replyMsg,$replyToken);
 
 		}
 
