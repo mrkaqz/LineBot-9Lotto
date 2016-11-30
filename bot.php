@@ -232,7 +232,7 @@ if (!is_null($events['events'])) {
 				$kyear = iconv_substr($text,15,4);
 				$kyears = $kyear-543;
 
-				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyears.'-'.$kmonth.'-'.$kday;
+				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyears.'-'.$kmonth.'-'.$kday.'.html';
 			}
 
 			// Get Lotto Data from Kapook
