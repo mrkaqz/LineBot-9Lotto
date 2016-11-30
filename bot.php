@@ -322,7 +322,6 @@ if (!is_null($events['events'])) {
 	    }
 
 			//reply back
-
 			sendreply($replyMsg,$replyToken,$access_token);
 
 		}
@@ -350,7 +349,11 @@ if (!is_null($events['events'])) {
 				"ให้แค่นี้ที่เหลือไปตามหาเอาเอง",
 				"ชิตังเม โป้ง รวย!"
 			);
-				$replyMsg .= chr(10).$guessword[rand(0,count($guessword)-1)];
+
+			$replyMsg .= chr(10).$guessword[rand(0,count($guessword)-1)];
+
+			//reply back
+			sendreply($replyMsg,$replyToken,$access_token);
 
 		}
 
