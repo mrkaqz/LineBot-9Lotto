@@ -223,7 +223,7 @@ if (!is_null($events['events'])) {
 				$kurl = 'http://lottery.kapook.com/';
 			}
 
-			if((strstr($text,"เรียงเบอร์ ")){
+			if(strstr($text,"เรียงเบอร์ ")){
 
 				$kdate = iconv_substr($text,11);
 
