@@ -217,7 +217,7 @@ if (!is_null($events['events'])) {
 
 		}
 
-		if(strstr($text,"เรียงเบอร์") or (strstr($text,"เรียงเบอร์ ")){
+		if(strstr($text,"เรียงเบอร์") or (strstr($text,"เรียงเบอร์ "))){
 
 			if(strstr($text,"เรียงเบอร์")){
 				$kurl = 'http://lottery.kapook.com/'
