@@ -322,6 +322,7 @@ if (!is_null($events['events'])) {
 	        $replyMsg .=  $data->nodeValue." ";
 	    }
 
+			$replyMsg .= $kurl;
 			//reply back
 
 			sendreply($replyMsg,$replyToken,$access_token);
