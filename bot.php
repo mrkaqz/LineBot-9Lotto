@@ -211,17 +211,14 @@ if (!is_null($events['events'])) {
 				$replyMsg .= " debug ".$debugmsg;
 			}
 
-
 			// reply back
 			sendreply($replyMsg,$replyToken,$access_token);
 
 		}
 
-		if(strstr($text,"เรียงเบอร์") or strstr($text,"เรียงเบอร์ ")){
 
-			if(strstr($text,"เรียงเบอร์")){
-				$kurl = 'http://lottery.kapook.com/';
-			}
+		// เรียงเบอร์
+		if(strstr($text,"เรียงเบอร์") or strstr($text,"เรียงเบอร์ ")){
 
 			if(strstr($text,"เรียงเบอร์ ")){
 
@@ -233,6 +230,8 @@ if (!is_null($events['events'])) {
 				$kyears = $kyear-543;
 
 				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyears.'-'.$kmonth.'-'.$kday.'.html';
+			}else{
+				$kurl = 'http://lottery.kapook.com/';
 			}
 
 			// Get Lotto Data from Kapook
@@ -321,12 +320,40 @@ if (!is_null($events['events'])) {
 	        $data = $dom->getElementById("no5:".$i);
 	        $replyMsg .=  $data->nodeValue." ";
 	    }
-			
+
 			//reply back
 
 			sendreply($replyMsg,$replyToken,$access_token);
 
 		}
+
+		//ใบ้หวย
+		if(strstr($text,"ใบ้หวย")){
+
+			$number2 = str_pad(rand(0,99), 2, '0', STR_PAD_LEFT);
+			$number3 = str_pad(rand(0,999), 3, '0', STR_PAD_LEFT);
+
+			$replyMsg .= "เลข 2 ตัว ".$number2;
+			$replyMsg .= chr(10);
+			$replyMsg .= "เลข 3 ตัว ".$number3;
+			$replyMsg .= chr(10);
+
+			$guessword = array(
+				"จัดไปเลย",
+				"ขอให้รวย ขอให้รวย!!!",
+				"โปรใช้วิจารณญาณในการรับชม",
+				"ชุด 30 ล้านเลยครับเลขนี้",
+				"อย่าลืมกลับด้วยละ",
+				"รีบไปซื้อด่วน หวยจะออกแล้ว",
+				"ถ้าไม่ถูกก็ตัวใครตัวมัน",
+				"ถ้าถูกก็แบ่งกันบ้างนะ",
+				"ให้แค่นี้ที่เหลือไปตามหาเอาเอง",
+				"ชิตังเม โป้ง รวย!"
+			);
+				$replyMsg .= chr(10).$guessword[rand(0,count($guessword)-1)];
+
+		}
+
 
 	}elseif ($event['type'] == 'join') {
 
@@ -336,33 +363,6 @@ if (!is_null($events['events'])) {
 			$replyMsg =	'วิธีตรวจหวยงวดล่าสุด'.chr(10).'ให้พิมพ์คำว่า ตรวจหวย เว้นวรรค ตามด้วยตัวเลข 6 หลัก เช่น'.chr(10).'"ตรวจหวย 123456"'.chr(10).chr(10).'พิมพ์ "เรียงเบอร์" เพื่อดูผล 3 งวดล่าสุด';
 
 			sendreply($replyMsg,$replyToken,$access_token);
-
-			/*
-			$messages = [
-				'type' => 'text',
-				'text' => $replyMsg
-			];
-
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-
-			echo $result . "\r\n";
-			*/
 
 		}
 
