@@ -4,7 +4,7 @@ $debugmsg = "";
 $replyMsg = "";
 
 
-function sendreply($msg,$Token,$key) {
+function sendreply($msg,$token,$akey) {
 
 	$messages = [
 		'type' => 'text',
@@ -14,11 +14,11 @@ function sendreply($msg,$Token,$key) {
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
-		'replyToken' => $Token,
+		'replyToken' => $token,
 		'messages' => [$messages],
 	];
 	$post = json_encode($data);
-	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $key);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $akey);
 
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -31,7 +31,7 @@ function sendreply($msg,$Token,$key) {
 
 	echo $result . "\r\n";
 }
-*/
+
 
 // Get POST body content
 $content = file_get_contents('php://input');
