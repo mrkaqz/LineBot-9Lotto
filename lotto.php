@@ -1,87 +1,89 @@
 <?
+$replyMsg = "";
+
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
     $dom->loadHTMLFile('http://lottery.kapook.com/');
 
     //งวด
-    echo "งวดวันที่ ";
+    $replyMsg .= "งวดวันที่ ";
     $data = $dom->getElementById("spLottoDate");
-    echo $data->nodeValue;
-    echo "<br>";
+    $replyMsg .= $data->nodeValue;
+    $replyMsg .=  chr(10);
 
     // รางวัลที่ 1
-    echo "รางวัลที่ 1";
-    echo "<br>";
+    $replyMsg .= "รางวัลที่ 1";
+    $replyMsg .=  chr(10);
     $data = $dom->getElementById("no1");
-    echo $data->nodeValue;
-    echo "<br>";
+    $replyMsg .=  $data->nodeValue;
+    $replyMsg .=  chr(10);
 
     //เลขหน้า 3 ตัว
-    echo "เลขหน้า 3 ตัว";
-    echo "<br>";
+    $replyMsg .=  "เลขหน้า 3 ตัว";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 2; $i++) {
         $data = $dom->getElementById("d3:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //เลขท้าย 3 ตัว
-    echo "เลขท้าย 3 ตัว";
-    echo "<br>";
+    $replyMsg .=  "เลขท้าย 3 ตัว";
+    $replyMsg .=  chr(10);
     for ($i = 3; $i <= 4; $i++) {
         $data = $dom->getElementById("d3:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //เลขท้าย 2 ตัว
-    echo "เลขท้าย 2 ตัว";
-    echo "<br>";
+    $replyMsg .=  "เลขท้าย 2 ตัว";
+    $replyMsg .=  chr(10);
     $data = $dom->getElementById("d2");
-    echo $data->nodeValue;
-    echo "<br>";
+    $replyMsg .=  $data->nodeValue;
+    $replyMsg .=  chr(10);
 
     //ใกล้เคียงรางวัลที่ 1
-    echo "ใกล้เคียงรางวัลที่ 1";
-    echo "<br>";
+    $replyMsg .=  "ใกล้เคียงรางวัลที่ 1";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 2; $i++) {
         $data = $dom->getElementById("no1nr:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //รางวัลที่ 2
-    echo "รางวัลที่ 2";
-    echo "<br>";
+    $replyMsg .=  "รางวัลที่ 2";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 5; $i++) {
         $data = $dom->getElementById("no2:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //รางวัลที่ 3
-    echo "รางวัลที่ 3";
-    echo "<br>";
+    $replyMsg .=  "รางวัลที่ 3";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 10; $i++) {
         $data = $dom->getElementById("no3:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //รางวัลที่ 4
-    echo "รางวัลที่ 4";
-    echo "<br>";
+    $replyMsg .=  "รางวัลที่ 4";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 50; $i++) {
         $data = $dom->getElementById("no4:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
-    echo "<br>";
+    $replyMsg .=  chr(10);
 
     //รางวัลที่ 5
-    echo "รางวัลที่ 5";
-    echo "<br>";
+    $replyMsg .=  "รางวัลที่ 5";
+    $replyMsg .=  chr(10);
     for ($i = 1; $i <= 100; $i++) {
         $data = $dom->getElementById("no5:".$i);
-        echo $data->nodeValue." ";
+        $replyMsg .=  $data->nodeValue." ";
     }
 ?>
