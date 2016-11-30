@@ -230,8 +230,9 @@ if (!is_null($events['events'])) {
 				$kday = iconv_substr($text,11,2);
 				$kmonth = iconv_substr($text,13,2);
 				$kyear = iconv_substr($text,15,4);
+				$kyears = $kyear-543;
 
-				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyear-543.'-'.$kmonth.'-'.$kday;
+				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyears.'-'.$kmonth.'-'.$kday;
 			}
 
 			// Get Lotto Data from Kapook
