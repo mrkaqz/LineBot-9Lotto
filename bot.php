@@ -321,8 +321,7 @@ if (!is_null($events['events'])) {
 	        $data = $dom->getElementById("no5:".$i);
 	        $replyMsg .=  $data->nodeValue." ";
 	    }
-
-			$replyMsg .= $kurl;
+			
 			//reply back
 
 			sendreply($replyMsg,$replyToken,$access_token);
