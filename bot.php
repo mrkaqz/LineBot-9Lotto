@@ -329,6 +329,8 @@ if (!is_null($events['events'])) {
 		//ใบ้หวย
 		if(strstr($text,"ใบ้หวย")){
 
+			if (rand(0,10)>=1){
+
 			$number2 = str_pad(rand(0,99), 2, '0', STR_PAD_LEFT);
 			$number3 = str_pad(rand(0,999), 3, '0', STR_PAD_LEFT);
 
@@ -351,7 +353,9 @@ if (!is_null($events['events'])) {
 			);
 
 			$replyMsg .= chr(10).$guessword[rand(0,count($guessword)-1)];
-
+		}else{
+			$replyMsg .= "ไม่บอกหรอกนะ :P";
+		}
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
 
