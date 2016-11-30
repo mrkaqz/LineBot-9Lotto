@@ -21,7 +21,7 @@
     echo "<br>";
     for ($i = 1; $i <= 2; $i++) {
         $data = $dom->getElementById("d3:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -30,7 +30,7 @@
     echo "<br>";
     for ($i = 3; $i <= 4; $i++) {
         $data = $dom->getElementById("d3:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -46,7 +46,7 @@
     echo "<br>";
     for ($i = 1; $i <= 2; $i++) {
         $data = $dom->getElementById("no1nr:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -55,7 +55,7 @@
     echo "<br>";
     for ($i = 1; $i <= 5; $i++) {
         $data = $dom->getElementById("no2:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -64,7 +64,7 @@
     echo "<br>";
     for ($i = 1; $i <= 10; $i++) {
         $data = $dom->getElementById("no3:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -73,7 +73,7 @@
     echo "<br>";
     for ($i = 1; $i <= 50; $i++) {
         $data = $dom->getElementById("no4:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
     echo "<br>";
 
@@ -82,6 +82,6 @@
     echo "<br>";
     for ($i = 1; $i <= 100; $i++) {
         $data = $dom->getElementById("no5:".$i);
-        echo $data->nodeValue;
+        echo $data->nodeValue." ";
     }
 ?>
