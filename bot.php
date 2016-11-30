@@ -240,7 +240,7 @@ if (!is_null($events['events'])) {
 			// Get Lotto Data from Kapook
 			$dom = new DOMDocument();
 	    libxml_use_internal_errors(true);
-	    $dom->loadHTMLFile($kurl);
+	    $dom->loadHTMLFile('http://lottery.kapook.com/');
 
 	    //งวด
 	    $replyMsg .= "งวดวันที่ ";
