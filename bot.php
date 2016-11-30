@@ -3,8 +3,8 @@ $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5Gjt
 $debugmsg = "";
 $replyMsg = "";
 
-/*
-function sendreply($msg,$Token) {
+
+function sendreply($msg,$Token,$key) {
 
 	$messages = [
 		'type' => 'text',
@@ -18,7 +18,7 @@ function sendreply($msg,$Token) {
 		'messages' => [$messages],
 	];
 	$post = json_encode($data);
-	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
+	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $key);
 
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -366,7 +366,9 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$replyMsg =	'วิธีตรวจหวยงวดล่าสุด'.chr(10).'ให้พิมพ์คำว่า ตรวจหวย เว้นวรรค ตามด้วยตัวเลข 6 หลัก เช่น'.chr(10).'"ตรวจหวย 123456"'.chr(10).chr(10).'พิมพ์ "เรียงเบอร์" เพื่อดูผล 3 งวดล่าสุด';
 
-			//sendreply($replyMsg,$replyToken);
+			sendreply($replyMsg,$replyToken,$access_token);
+
+			/*
 			$messages = [
 				'type' => 'text',
 				'text' => $replyMsg
@@ -391,7 +393,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-
+			*/
 
 		}
 
