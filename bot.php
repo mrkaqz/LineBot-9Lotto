@@ -141,6 +141,7 @@ if (!is_null($events['events'])) {
 				  "อย่าเสียใจไป งวดหน้าอาจจะถูกก็ได้ อย่าเพิ่งสิ้นหวัง"
 				);
         $replyMsg .= $fword[rand(0,count($fword)-1)];
+				$replyMsg .= chr(10)."(งวดวันที่ ".$lottodate.")";
 
       }
       else {
@@ -203,6 +204,7 @@ if (!is_null($events['events'])) {
 					"ชิตังเม โป้ง รวย!"
 				);
           $replyMsg .= " ".$endword[rand(0,count($endword)-1)];
+					$replyMsg .= chr(10)."(งวดวันที่ ".$lottodate.")";
       }
 
       }
@@ -210,7 +212,6 @@ if (!is_null($events['events'])) {
 			if(strstr($text,"debug ")){
 				$replyMsg .= " debug ".$debugmsg;
 			}
-			$replyMsg .= chr(10)."(งวดวันที่ ".$lottodate.")";
 
 			// reply back
 			sendreply($replyMsg,$replyToken,$access_token);
