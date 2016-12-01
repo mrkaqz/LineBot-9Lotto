@@ -212,11 +212,10 @@ if (!is_null($events['events'])) {
 			$replyMsg .= $uname." ";
 			*/
 
-
-
 			// Lotto
 
-			$number = iconv_substr($text,8);
+			$offset = strpos($text,"ตรวจหวย ");
+			$number = iconv_substr($text,$offset);
 
 			if(strstr($text,"ตรวจหวย ")){
 
