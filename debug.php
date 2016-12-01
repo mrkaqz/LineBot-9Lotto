@@ -12,7 +12,7 @@
     $begin = strpos($GenStr, '"'); // Can hardcode this with 14 (the length of your 'needle'
     $end   = strrpos($GenStr, '""');
 
-    $GenStrVar = substr($html, $begin, ($end - $begin));
+    $GenStrVar = substr($GenStr, $begin, ($end - $begin));
 
     echo $GenStrVar;
 
