@@ -25,9 +25,9 @@
         $lottofinal[$lottoprize[0]] = $lottoprize[1];
       }
 
-      echo $lottofinal['no1'];
+      echo $lottofinal;
       echo '<br />';
-      echo gettype($lottofinal['no1']);
+      echo gettype($lottofinal);
     }
 /*
     $startprize = $html->find('//STARTPRIZE');
