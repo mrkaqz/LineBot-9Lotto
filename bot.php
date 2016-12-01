@@ -140,37 +140,37 @@ function prizeName($code){
 
 	switch ($code) {
 		case strstr($code,"no1nr"):
-				return "รางวัลข้างเคียงรางวัลที่ 1";
+				return "ถูกรางวัลข้างเคียงรางวัลที่ 1";
 				break;
 	    case strstr($code,"no1"):
-	        return "รางวัลที่ 1";
+	        return "ถูกรางวัลที่ 1";
 	        break;
 			case strstr($code,"no2"):
-			    return "รางวัลที่ 2";
+			    return "ถูกรางวัลที่ 2";
 			    break;
 			case strstr($code,"no3"):
-			    return "รางวัลที่ 3";
+			    return "ถูกรางวัลที่ 3";
 			    break;
 			case strstr($code,"no4"):
-					return "รางวัลที่ 4";
+					return "ถูกรางวัลที่ 4";
 					break;
 			case strstr($code,"no5"):
-			    return "รางวัลที่ 5";
+			    return "ถูกรางวัลที่ 5";
 			    break;
 			case strstr($code,"d3:1"):
-				  return "รางวัลเลขหน้า 3 ตัว";
+				  return "ถูกรางวัลเลขหน้า 3 ตัว";
 				  break;
 			case strstr($code,"d3:2"):
-					return "รางวัลเลขหน้า 3 ตัว";
+					return "ถูกรางวัลเลขหน้า 3 ตัว";
 					break;
 			case strstr($code,"d3:3"):
-					return "รางวัลเลขท้าย 3 ตัว";
+					return "ถูกรางวัลเลขท้าย 3 ตัว";
 					break;
 			case strstr($code,"d3:4"):
-					return "รางวัลเลขท้าย 3 ตัว";
+					return "ถูกรางวัลเลขท้าย 3 ตัว";
 					break;
 			case strstr($code,"d2"):
-					return "รางวัลเลขท้าย 2 ตัว";
+					return "ถูกรางวัลเลขท้าย 2 ตัว";
 					break;
 			default:
 	        return "ถูกกิน!";
@@ -243,14 +243,73 @@ if (!is_null($events['events'])) {
 				$kurl = 'http://lottery.kapook.com/';
 
 				$lottofinal = getlottoData($kurl);
-
+				$Win = false;
+				// เช็ค 6 หลัก
 				foreach ($lottofinal as $prize => $nlotto) {
 					if ($number == $nlotto){
-						$replyMsg .= "ถูก".prizeName($prize);
+						$replyMsg .= prizeName($prize);
+						$Win = true;
 					}
-
 				}
 
+				// เช็คเลขหน้า 3 ตัว
+				if (substr($number,0,3) == $lottofinal['d3:1'] or substr($number,0,3) == $lottofinal['d3:2']){
+					if ($multiWin) {
+							$replyMsg .= ", ";
+					}
+					$replyMsg .= prizeName('d3:1');
+					$Win = true;
+				}
+				// เช็คเลข ท้าย 3 ตัว
+				if (substr($number,3,3) == $lottofinal['d3:3'] or substr($number,3,3) == $lottofinal['d3:4']){
+					if ($multiWin) {
+							$replyMsg .= ", ";
+					}
+					$replyMsg .= prizeName('d3:3');
+					$Win = true;
+				}
+				// เช็คเลขท้าย 2 ตัว
+				if (substr($number,4,2) == $lottofinal['d2']){
+					if ($multiWin) {
+							$replyMsg .= ", ";
+					}
+					$replyMsg .= prizeName('d2');
+					$Win = true;
+				}
+
+				if ($Win){
+
+					$endword = array(
+						"เลขเด็ดจริงๆ",
+						"รวย!!!",
+						"อย่างนี้ต้องฉลอง",
+						"รวยเลยครัชงานนี้",
+						"เลขนี้ท่านได้แต่ใดมา",
+						"อย่าลืมแก้บนนะ",
+						"รวยไม่รู้ตัว",
+						"ระวังเพื่อนยืมนะ",
+						"เตรียมเอาเงินไปฝังดินไว้เลย",
+						"รวยครับรวย",
+						"ชิตังเม โป้ง รวย!"
+					);
+	          $replyMsg .= " ".$endword[rand(0,count($endword)-1)];
+						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+
+					}else{
+
+					$fword = array(
+						"เสียใจด้วยนะ โดนหวยแหลก!! งวดหน้าเอาใหม่นะจ๊ะ",
+						"ซื้อเลขอะไรมาเนี่ย มันไม่ได้ใกล้เคียงเล๊ย!",
+						"เสียใจด้วย สิ้นเดือนนี้ก็กินมาม่าต่อไปละกันนะ",
+						"ที่ขูดมา ยังตีเป็นเลขไม่แม่นนะ โดนหวยแหลก",
+						"สะกดคำว่า ถูกหวย เป็นไหม? เฮ้อ!!!",
+						"โดนกินตามเคย เอาให้มันแม่นๆหน่อยสิคราวหน้า",
+					  "อย่าเสียใจไป งวดหน้าอาจจะถูกก็ได้ อย่าเพิ่งสิ้นหวัง"
+					);
+	        $replyMsg .= $fword[rand(0,count($fword)-1)];
+					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+
+				}
 /*
       if(strstr($output,"ไม่ถูกรางวัลสลากกินแบ่งรัฐบาล"))
       {
