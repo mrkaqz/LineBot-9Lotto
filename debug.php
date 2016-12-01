@@ -5,6 +5,7 @@
     $lottourl = 'http://lottery.kapook.com/';
 
     echo 'Source: '.$lottourl;
+    echo '<br />';
 
     $html = file_get_contents($lottourl);
 
@@ -24,12 +25,6 @@
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
     $dom->loadHTMLFile($lottourl);
-
-    //งวด
-    echo "งวดวันที่ ";
-    $data = $dom->getElementById("spLottoDate");
-    echo $data->nodeValue."\n";
-    echo "<br>";
 
     // รางวัล
 
@@ -104,6 +99,12 @@
 
 
     }
+
+    //งวด
+    echo "งวดวันที่ ";
+    $data = $dom->getElementById("spLottoDate");
+    echo $data->nodeValue."\n";
+    echo "<br>";
 
     // รางวัลที่ 1
     echo "รางวัลที่ 1";
