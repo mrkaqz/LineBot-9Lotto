@@ -199,6 +199,8 @@ if (!is_null($events['events'])) {
 
       }else{
 
+				$kurl = 'http://lottery.kapook.com/';
+
 				$lottofinal = getlottoData($kurl);
 
 				foreach ($lottofinal as $prize => $nlotto) {
