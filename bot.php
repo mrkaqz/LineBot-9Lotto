@@ -217,6 +217,8 @@ if (!is_null($events['events'])) {
 			$offset = strpos($text,"ตรวจหวย ");
 			$number = iconv_substr($text,$offset);
 
+			$debugmsg .= 'Modifed Input '.$number.chr(10);
+
 			if(strstr($text,"ตรวจหวย ")){
 
       // Get Lotto Check
