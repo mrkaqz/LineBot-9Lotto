@@ -22,7 +22,7 @@
       $i=0;
       foreach ($lottoarr as $lotto) {
         $lottoprize = explode("#", $lotto);
-        $lottofinal[i] = $lottoprize[0] => $lottoprize[1];
+        $lottofinal[$lottoprize[0]] = $lottoprize[1];
       }
 
     }
