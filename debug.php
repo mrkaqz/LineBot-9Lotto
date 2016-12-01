@@ -6,9 +6,19 @@
     $begin = strpos($html, '//STARTPRIZE'); // Can hardcode this with 14 (the length of your 'needle'
     $end   = strpos($html, '//STOPPRIZE');
 
-    $text = substr($html, $begin, ($end - $begin));
+    $GenStr = substr($html, $begin, ($end - $begin));
 
-    echo $text;
+
+    $begin = strpos($GenStr, '"'); // Can hardcode this with 14 (the length of your 'needle'
+    $end   = strrpos($GenStr, '""');
+
+    $GenStrVar = substr($html, $begin, ($end - $begin));
+
+    echo $GenStrVar;
+
+    if(!strstr($GenStr,'GenStr=""')){
+
+    }
 /*
     $startprize = $html->find('//STARTPRIZE');
     $stopprize = $html->find('//STOPPRIZE');
