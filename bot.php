@@ -327,7 +327,7 @@ if (!is_null($events['events'])) {
 		}
 
 		//ใบ้หวย
-		if(strstr($text,"ใบ้หวย")){
+		if(strstr($text,"ใบ้หวย") or strstr($text,"เลขเด็ด")){
 
 			if (rand(0,10)>=1){
 
