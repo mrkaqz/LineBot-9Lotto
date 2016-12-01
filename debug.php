@@ -18,6 +18,12 @@
 
     if(!strstr($GenStr,'GenStr=""')){
 
+      $lottoarr = explode("@", $GenStrVar);
+      foreach ($lottoarr as $lotto) {
+        echo $lotto;
+        echo '<br />';
+      }
+
     }
 /*
     $startprize = $html->find('//STARTPRIZE');
