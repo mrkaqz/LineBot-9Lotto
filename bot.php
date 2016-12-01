@@ -362,7 +362,7 @@ if (!is_null($events['events'])) {
 			//งวด
 			$replyMsg .= "งวดวันที่ ";
 	    $replyMsg .= $lottofinal['spLottoDate'];
-	    $replyMsg .= chr(10);
+	    $replyMsg .= chr(10).chr(10);
 
 	    // รางวัลที่ 1
 	    $replyMsg .= "รางวัลที่ 1";
@@ -516,7 +516,7 @@ if (!is_null($events['events'])) {
 		//งวด
 		$replyMsg .= "งวดวันที่ ";
 		$replyMsg .= $lottofinal['spLottoDate'];
-		$replyMsg .= chr(10);
+		$replyMsg .= chr(10).chr(10);
 
 		// รางวัลที่ 1
 		$replyMsg .= "รางวัลที่ 1";
