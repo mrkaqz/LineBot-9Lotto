@@ -4,6 +4,8 @@
     //$lottourl = 'https://glacial-anchorage-14478.herokuapp.com/kapook.php';
     $lottourl = 'http://lottery.kapook.com/';
 
+    echo 'Source: '.$lottourl;
+
     $html = file_get_contents($lottourl);
 
     $begin = strpos($html, '//STARTPRIZE');
