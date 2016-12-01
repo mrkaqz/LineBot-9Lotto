@@ -48,7 +48,8 @@
       echo "เลขหน้า 3 ตัว";
       echo "<br>";
       for ($i = 1; $i <= 2; $i++) {
-          echo $lottofinal['d3:'.$i];." ";
+          $loopkey = 'd3:'.$i;
+          echo $lottofinal[$loopkey];." ";
       }
       echo "<br>";
 
