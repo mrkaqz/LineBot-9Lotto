@@ -139,6 +139,9 @@ function getlottoData($lottourl){
 function prizeName($code){
 
 	switch ($code) {
+		case strstr($code,"no1nr"):
+				return "รางวัลข้างเคียงรางวัลที่ 1";
+				break;
 	    case strstr($code,"no1"):
 	        return "รางวัลที่ 1";
 	        break;
@@ -153,9 +156,6 @@ function prizeName($code){
 					break;
 			case strstr($code,"no5"):
 			    return "รางวัลที่ 5";
-			    break;
-			case strstr($code,"no1nr"):
-			    return "รางวัลข้างเคียงรางวัลที่ 1";
 			    break;
 			case strstr($code,"d3:1"):
 				  return "รางวัลเลขหน้า 3 ตัว";
