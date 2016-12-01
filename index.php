@@ -1,8 +1,8 @@
 <?
 
 
-    $lottourl = 'https://glacial-anchorage-14478.herokuapp.com/kapook.php';
-    //$lottourl = 'http://lottery.kapook.com/';
+    //$lottourl = 'https://glacial-anchorage-14478.herokuapp.com/kapook.php';
+    $lottourl = 'http://lottery.kapook.com/';
 
     echo 'Source: '.$lottourl;
     echo '<br />';
