@@ -205,7 +205,6 @@ if (!is_null($events['events'])) {
 
 				foreach ($lottofinal as $prize => $nlotto) {
 					if ($number == $nlotto){
-
 						$replyMsg .= "ถูกรางวัล";
 					}
 
