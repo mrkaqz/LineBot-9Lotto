@@ -14,7 +14,7 @@
 
     $GenStrVar = substr($GenStr, $begin+1, ($end - $begin)-2);
 
-    echo $GenStrVar;
+    //echo $GenStrVar;
 
     if(!strstr($GenStr,'GenStr=""')){
 
@@ -26,6 +26,7 @@
       }
 
       echo $lottofinal['no1'];
+      echo '<br />';
       echo gettype($lottofinal['no1']);
     }
 /*
