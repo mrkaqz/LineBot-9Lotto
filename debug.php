@@ -1,17 +1,24 @@
 <?
 
-    include_once('simple_html_dom.php');
 
-    $html = file_get_html('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
-    $startprize = $html->find('STARTPRIZE');
-    $stopprize = $html->find('STOPPRIZE');
+    $html = file_get_contents('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
+
+    $begin = strpos($html, '//STARTPRIZE'); // Can hardcode this with 14 (the length of your 'needle'
+    $end   = strpos($html, '//STOPPRIZE');
+
+    $text = substr($var, $begin, ($end - $begin));
+
+    echo $text;
+/*
+    $startprize = $html->find('//STARTPRIZE');
+    $stopprize = $html->find('//STOPPRIZE');
 
     echo $startprize;
     echo '<br />';
     echo $stopprize;
 
 
-/*
+
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
     $dom->loadHTMLFile('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
