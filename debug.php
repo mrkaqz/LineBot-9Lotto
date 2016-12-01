@@ -113,6 +113,8 @@
           echo $lottofinal[$loopkey]." ";
       }
 
+      echo '<br />';
+      echo json_encode($lottofinal);
 
 
     }else{
