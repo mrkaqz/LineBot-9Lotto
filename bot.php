@@ -210,6 +210,7 @@ if (!is_null($events['events'])) {
 			if(strstr($text,"debug ")){
 				$replyMsg .= " debug ".$debugmsg;
 			}
+			$replyMsg .= chr(10).chr(10)."(งวดวันที่ ".$lottodate.")";
 
 			// reply back
 			sendreply($replyMsg,$replyToken,$access_token);
