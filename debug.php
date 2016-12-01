@@ -1,7 +1,7 @@
 <?
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
-    $dom->loadHTMLFile('http://lottery.kapook.com/');
+    $dom->loadHTMLFile('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
 
     //งวด
     echo "งวดวันที่ ";
