@@ -41,7 +41,7 @@
     }else{
 
     // รางวัลที่ 1
-    $data = $dom->getElementById("no1");
+    $data = $dom->getElementById('no1');
     $lottofinal['no1'] = $data->nodeValue;
 
     for ($i = 1; $i <= 2; $i++) {
@@ -58,8 +58,8 @@
     }
 
     //เลขท้าย 2 ตัว
-    $data = $dom->getElementById("nd2");
-    $lottofinal['no1'] = $data->nodeValue;
+    $data = $dom->getElementById('d2');
+    $lottofinal['d2'] = $data->nodeValue;
 
     //ใกล้เคียงรางวัลที่ 1
     for ($i = 1; $i <= 2; $i++) {

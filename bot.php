@@ -288,8 +288,8 @@ if (!is_null($events['events'])) {
 	    }
 
 	    //เลขท้าย 2 ตัว
-	    $data = $dom->getElementById("nd2");
-	    $lottofinal['no1'] = $data->nodeValue;
+	    $data = $dom->getElementById("d2");
+	    $lottofinal['d2'] = $data->nodeValue;
 
 	    //ใกล้เคียงรางวัลที่ 1
 	    for ($i = 1; $i <= 2; $i++) {
