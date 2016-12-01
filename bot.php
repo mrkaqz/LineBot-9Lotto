@@ -247,7 +247,7 @@ if (!is_null($events['events'])) {
 				// เช็ค 6 หลัก
 				foreach ($lottofinal as $prize => $nlotto) {
 					if ($number === $nlotto){
-						$replyMsg .= prizeName($prize)."loop";
+						$replyMsg .= prizeName($prize);
 						$Win = true;
 					}
 				}
