@@ -6,7 +6,7 @@
     $begin = strpos($html, '//STARTPRIZE'); // Can hardcode this with 14 (the length of your 'needle'
     $end   = strpos($html, '//STOPPRIZE');
 
-    $text = substr($var, $begin, ($end - $begin));
+    $text = substr($html, $begin, ($end - $begin));
 
     echo $text;
 /*
