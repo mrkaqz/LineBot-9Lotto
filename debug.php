@@ -25,6 +25,7 @@
         $lottofinal[$lottoprize[0]] = $lottoprize[1];
       }
 
+      echo $lottofinal['no1'];
     }
 /*
     $startprize = $html->find('//STARTPRIZE');
