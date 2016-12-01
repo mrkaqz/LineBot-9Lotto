@@ -14,3 +14,5 @@ for ($i = 0; $i < 3; $i++) {
   $replyMsg .= chr(10);
   $replyMsg .= chr(10);
 }
+
+echo $replyMsg;
