@@ -174,6 +174,7 @@ function prizeName($code){
 					break;
 			default:
 	        return "ถูกกิน!";
+				}
 }
 
 
