@@ -1,4 +1,13 @@
 <?
+
+    $html = file_get_html('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
+    $startprize = $html->find('//STARTPRIZE');
+    $stopprize = $html->find('//STOPPRIZE');
+
+    echo $startprize;
+    echo '<br />';
+    echo $stopprize;
+
     $dom = new DOMDocument();
     libxml_use_internal_errors(true);
     $dom->loadHTMLFile('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
