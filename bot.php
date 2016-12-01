@@ -292,7 +292,7 @@ if (!is_null($events['events'])) {
 						"รวยครับรวย",
 						"ชิตังเม โป้ง รวย!"
 					);
-	          $replyMsg .= " ".$endword[rand(0,count($endword)-1)];
+	          $replyMsg .= chr(10).$endword[rand(0,count($endword)-1)];
 						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
 
 					}else{
