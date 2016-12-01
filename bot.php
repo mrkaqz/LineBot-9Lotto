@@ -504,6 +504,58 @@ if (!is_null($events['events'])) {
 		}
 
 
+		// หวยสั้น
+
+		if(strstr($text,"หวยออกไร") or strstr($text,"หวยออกอะไร") or strstr($text,"หวยออกยัง")){
+
+		$kurl = 'http://lottery.kapook.com/';
+
+
+		$lottofinal = getlottoData($kurl);
+
+		//งวด
+		$replyMsg .= "งวดวันที่ ";
+		$replyMsg .= $lottofinal['spLottoDate'];
+		$replyMsg .= chr(10);
+
+		// รางวัลที่ 1
+		$replyMsg .= "รางวัลที่ 1";
+		$replyMsg .= chr(10);
+		$replyMsg .= $lottofinal['no1'];
+		$replyMsg .= chr(10).chr(10);
+
+		//เลขหน้า 3 ตัว
+		$replyMsg .= "เลขหน้า 3 ตัว";
+		$replyMsg .= chr(10);
+		for ($i = 1; $i <= 2; $i++) {
+				$loopkey = 'd3:'.$i;
+				$replyMsg .= $lottofinal[$loopkey]." ";
+		}
+		$replyMsg .= chr(10).chr(10);
+
+		//เลขท้าย 3 ตัว
+		$replyMsg .= "เลขท้าย 3 ตัว";
+		$replyMsg .= chr(10);
+		for ($i = 3; $i <= 4; $i++) {
+				$loopkey = 'd3:'.$i;
+				$replyMsg .= $lottofinal[$loopkey]." ";
+		}
+		$replyMsg .= chr(10).chr(10);
+
+		//เลขท้าย 2 ตัว
+		$replyMsg .= "เลขท้าย 2 ตัว";
+		$replyMsg .= chr(10);
+		$replyMsg .= $lottofinal['d2'];
+		$replyMsg .= chr(10).chr(10);
+
+
+			//reply back
+			sendreply($replyMsg,$replyToken,$access_token);
+
+		}
+
+
+
 	}elseif ($event['type'] == 'join') {
 
 			$replyToken = $event['replyToken'];
