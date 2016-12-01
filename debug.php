@@ -49,7 +49,7 @@
       echo "<br>";
       for ($i = 1; $i <= 2; $i++) {
           $loopkey = 'd3:'.$i;
-          echo $lottofinal[$loopkey];." ";
+          echo $lottofinal[$loopkey]." ";
       }
       echo "<br>";
 /*
