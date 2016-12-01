@@ -198,7 +198,8 @@ if (!is_null($events['events'])) {
         $replyMsg .= $errword[rand(0,count($errword)-1)];
 
       }else{
-				$replyMsg .= $number;
+				$replyMsg .= gettype($number);
+
 				$kurl = 'http://lottery.kapook.com/';
 
 				$lottofinal = getlottoData($kurl);
