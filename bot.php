@@ -215,7 +215,7 @@ if (!is_null($events['events'])) {
 			// Lotto
 
 			$offset = strpos($text,"ตรวจหวย ");
-			$number = iconv_substr($text,$offset);
+			$number = iconv_substr($text,$offset+8);
 
 			$debugmsg .= 'Modifed Input '.$number.chr(10);
 
