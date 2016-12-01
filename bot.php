@@ -136,6 +136,46 @@ function getlottoData($lottourl){
 
 }
 
+function prizeName($code){
+
+	switch ($code) {
+	    case strstr($code,"no1"):
+	        return "รางวัลที่ 1";
+	        break;
+			case strstr($code,"no2"):
+			    return "รางวัลที่ 2";
+			    break;
+			case strstr($code,"no3"):
+			    return "รางวัลที่ 3";
+			    break;
+			case strstr($code,"no4"):
+					return "รางวัลที่ 4";
+					break;
+			case strstr($code,"no5"):
+			    return "รางวัลที่ 5";
+			    break;
+			case strstr($code,"no1nr"):
+			    return "รางวัลข้างเคียงรางวัลที่ 1";
+			    break;
+			case strstr($code,"d3:1"):
+				  return "รางวัลเลขหน้า 3 ตัว";
+				  break;
+			case strstr($code,"d3:2"):
+					return "รางวัลเลขหน้า 3 ตัว";
+					break;
+			case strstr($code,"d3:3"):
+					return "รางวัลเลขท้าย 3 ตัว";
+					break;
+			case strstr($code,"d3:4"):
+					return "รางวัลเลขท้าย 3 ตัว";
+					break;
+			case strstr($code,"d2"):
+					return "รางวัลเลขท้าย 2 ตัว";
+					break;
+			default:
+	        return "ถูกกิน!";
+}
+
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -198,7 +238,6 @@ if (!is_null($events['events'])) {
         $replyMsg .= $errword[rand(0,count($errword)-1)];
 
       }else{
-				$replyMsg .= gettype($number);
 
 				$kurl = 'http://lottery.kapook.com/';
 
@@ -206,7 +245,7 @@ if (!is_null($events['events'])) {
 
 				foreach ($lottofinal as $prize => $nlotto) {
 					if ($number == $nlotto){
-						$replyMsg .= "ถูกรางวัล";
+						$replyMsg .= "ถูก".prizeName($prize);
 					}
 
 				}
