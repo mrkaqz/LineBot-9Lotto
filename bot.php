@@ -212,7 +212,7 @@ if (!is_null($events['events'])) {
 			$replyMsg .= $uname." ";
 			*/
 
-			$debugmsg .= $content;
+
 
 			// Lotto
 
@@ -238,7 +238,11 @@ if (!is_null($events['events'])) {
 				);
         $replyMsg .= $errword[rand(0,count($errword)-1)];
 
+				$debugmsg .= 'Error Input'.chr(10);
+
       }else{
+
+				$debugmsg .= 'Input OK'.chr(10);
 
 				$kurl = 'http://lottery.kapook.com/';
 
@@ -249,6 +253,8 @@ if (!is_null($events['events'])) {
 					if ($number === $nlotto){
 						$replyMsg .= prizeName($prize);
 						$Win = true;
+
+						$debugmsg .= 'Lotto Loop Matched '.$number.' = '.$nlotto.chr(10);
 					}
 				}
 
@@ -259,6 +265,8 @@ if (!is_null($events['events'])) {
 					}
 					$replyMsg .= prizeName('d3:1');
 					$Win = true;
+
+					$debugmsg .= 'First 3 Matched '.substr($number,0,3).chr(10);
 				}
 				// เช็คเลข ท้าย 3 ตัว
 				if (substr($number,3,3) == $lottofinal['d3:3'] or substr($number,3,3) == $lottofinal['d3:4']){
@@ -267,6 +275,8 @@ if (!is_null($events['events'])) {
 					}
 					$replyMsg .= prizeName('d3:3');
 					$Win = true;
+
+					$debugmsg .= 'Last 3 Matched '.substr($number,3,3).chr(10);
 				}
 				// เช็คเลขท้าย 2 ตัว
 				if (substr($number,4,2) == $lottofinal['d2']){
@@ -275,6 +285,8 @@ if (!is_null($events['events'])) {
 					}
 					$replyMsg .= prizeName('d2');
 					$Win = true;
+
+					$debugmsg .= 'Last 2 Matched '.substr($number,4,2).chr(10);
 				}
 
 				if ($Win){
@@ -311,12 +323,14 @@ if (!is_null($events['events'])) {
 	        $replyMsg .= $fword[rand(0,count($fword)-1)];
 					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
 
+					$debugmsg .= 'Not Matched '.chr(10);
+
 				}
 
       }
 
 			if(strstr($text,"debug ")){
-				$replyMsg .= " debug ".$debugmsg;
+				$replyMsg .= chr(10)."debug msg".chr(10).$debugmsg;
 			}
 
 			// reply back
