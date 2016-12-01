@@ -52,7 +52,7 @@
           echo $lottofinal[$loopkey];." ";
       }
       echo "<br>";
-
+/*
       //เลขท้าย 3 ตัว
       echo "เลขท้าย 3 ตัว";
       echo "<br>";
@@ -112,7 +112,7 @@
           $data = $dom->getElementById("no5:".$i);
           echo $data->nodeValue."\n";
       }
-
+*/
 
 
     }else{
