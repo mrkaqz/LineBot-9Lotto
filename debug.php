@@ -1,5 +1,7 @@
 <?
 
+    include_once('simple_html_dom.php');
+
     $html = file_get_html('https://glacial-anchorage-14478.herokuapp.com/kapook.php');
     $startprize = $html->find('//STARTPRIZE');
     $stopprize = $html->find('//STOPPRIZE');
