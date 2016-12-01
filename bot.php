@@ -257,7 +257,7 @@ if (!is_null($events['events'])) {
 	    $dom->loadHTMLFile($kurl);
 
 	    // รางวัล
-	
+
 	    if(!strstr($GenStr,'GenStr=""')){
 
 	      $lottoarr = explode("@", $GenStrVar);
@@ -271,7 +271,7 @@ if (!is_null($events['events'])) {
 	    }else{
 
 	    // รางวัลที่ 1
-	    $data = $dom->getElementById("no1");
+	    $data = $dom->getElementById('no1');
 	    $lottofinal['no1'] = $data->nodeValue;
 
 	    for ($i = 1; $i <= 2; $i++) {
@@ -332,8 +332,8 @@ if (!is_null($events['events'])) {
 	    //งวด
 	    $replyMsg .= "งวดวันที่ ";
 	    $data = $dom->getElementById("spLottoDate");
-	    $replyMsg .= $data->nodeValue."\n";
-	    $replyMsg .= chr(10).chr(10);
+	    $replyMsg .= $data->nodeValue;
+	    $replyMsg .= chr(10);
 
 	    // รางวัลที่ 1
 	    $replyMsg .= "รางวัลที่ 1";
