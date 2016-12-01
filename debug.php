@@ -82,7 +82,7 @@
     echo "<br>";
     for ($i = 1; $i <= 100; $i++) {
         $data = $dom->getElementById("no5:".$i);
-        echo $data->item(0)->nodeValue."\n";
+        echo $data->nodeValue."\n";
     }
 
 
