@@ -19,9 +19,10 @@
     if(!strstr($GenStr,'GenStr=""')){
 
       $lottoarr = explode("@", $GenStrVar);
+      $i=0;
       foreach ($lottoarr as $lotto) {
-        echo $lotto;
-        echo '<br />';
+        $lottoprize = explode("#", $lotto);
+        $lottofinal[i] = $lottoprize[0] => $lottoprize[1];
       }
 
     }
