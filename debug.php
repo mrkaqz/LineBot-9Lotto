@@ -82,6 +82,6 @@
     echo "<br>";
     for ($i = 1; $i <= 100; $i++) {
         $data = $dom->getElementById("no5:".$i);
-        echo $data->firstChild->nodeValue."\n";
+        echo $data->documentElement->childNodes."\n";
     }
 ?>
