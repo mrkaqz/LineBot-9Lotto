@@ -204,14 +204,25 @@ $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-/*
+foreach ($lottofinal as $key => $value) {
+  $keycount++;
+  if($value !== 0) {
+    $valuecount++;
+  }
+}
+
+$nprize = 173;
+
+if ( $keycount !== $nprize and $valuecount !== $nprize) {
+
 // Create Firebase DB
-$ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-*/
+
+}
+
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $response = curl_exec($ch);
 curl_close($ch);
@@ -233,11 +244,6 @@ $lottofinal = json_decode($response);
 
 $keycount=0;$valuecount=0;
 
-foreach ($lottofinal as $key => $value) {
-  $keycount++;
-  if($value !== 0) {
-    $valuecount++;
-  }
-}
+
 
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
