@@ -381,7 +381,7 @@ if (!is_null($events['events'])) {
 					  "อย่าเสียใจไป งวดหน้าอาจจะถูกก็ได้ อย่าเพิ่งสิ้นหวัง"
 					);
 	        $replyMsg .= $fword[rand(0,count($fword)-1)];
-					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal['spLottoDate'].")";
 
 					$debugmsg .= 'Not Matched '.chr(10);
 
