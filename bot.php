@@ -55,6 +55,8 @@ if($value !== "") {
 	}
 }
 
+$replyMsg = chr(10).'Key: '.$keycount.' Value: '.$valuecount;
+
 $lottofinal = json_decode($response);
 $debugmsg .= 'Http Code '.var_dump($lottofinal).chr(10);
 
