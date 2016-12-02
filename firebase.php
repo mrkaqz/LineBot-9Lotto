@@ -31,7 +31,7 @@ foreach ($lottodb as $key => $value) {
   }
 }
 
-$nprize = 173;
+$nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
