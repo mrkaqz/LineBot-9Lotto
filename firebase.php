@@ -240,3 +240,5 @@ echo '<br>';
 
 
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
+echo '<br />';
+echo var_dump($lottodb);
