@@ -216,7 +216,7 @@ foreach ($lottodb as $key => $value) {
 
 $nprize = 173;
 
-if ( $keycount !== $nprize and $valuecount !== $nprize) {
+if ( $keycount !== $nprize) {
 
 // Create Firebase DB
 curl_setopt( $ch, CURLOPT_URL,$dburl);
@@ -224,6 +224,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
+echo '<br /> Build DB';
 
 }
 
@@ -237,11 +238,6 @@ echo '<br> HTTP Code: ';
 echo $httpcode;
 echo '<br>';
 
-if ($response == "") {
-  echo 'No Database';
-}else{
-  echo 'Database Node OK';
-}
 
 
 
