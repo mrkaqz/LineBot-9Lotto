@@ -235,6 +235,8 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			// Remove Zero width space
+			$text = str_replace("\xE2\x80\x8B", "", $text);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			/* Get User ID and User Name
