@@ -33,7 +33,7 @@ foreach ($lottodb as $key => $value) {
 
 $nprize = 173;
 
-if ( $keycount !== $nprize) {
+if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 // Create Firebase DB
 
