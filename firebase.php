@@ -247,4 +247,4 @@ foreach ($lottodb as $key => $value) {
   $lottofinal[$key] = $value;
 }
 
-echo var_dump($lottofianl);
+echo $lottofinal['no1'];
