@@ -194,20 +194,27 @@
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/lotto'.$lottodate.'.json';
 
+
+
 $data = json_encode($lottofinal);
 echo 'JSON : '.$data;
 
+$ch = curl_init();
+
+// Read Firebase DB
+curl_setopt( $curl, CURLOPT_URL,$dburl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+/*
+// Create Firebase DB
 $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+*/
 
 $response = curl_exec($ch);
 
-if (!$response)
-{
-    echo $response;
-}else{
-    echo 'OK';
-}
+echo '<br /> Respond: ';
+echo $response;
