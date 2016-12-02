@@ -201,17 +201,17 @@ echo 'JSON : '.$data;
 $ch = curl_init();
 
 // Read Firebase DB
-//curl_setopt( $ch, CURLOPT_URL,$dburl);
-//curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt( $ch, CURLOPT_URL,$dburl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-
+/*
 // Create Firebase DB
 $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+*/
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $response = curl_exec($ch);
 curl_close($ch);
