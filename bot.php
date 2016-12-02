@@ -365,7 +365,7 @@ if (!is_null($events['events'])) {
 						"ชิตังเม โป้ง รวย!"
 					);
 	          $replyMsg .= chr(10).$endword[rand(0,count($endword)-1)];
-						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal['spLottoDate'].")";
 
 					}else{
 
