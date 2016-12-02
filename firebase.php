@@ -206,7 +206,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 
 $keycount=0;$valuecount=0;
-foreach ($lottofinal as $key => $value) {
+$lottodb = json_decode($response);
+foreach ($lottodb as $key => $value) {
   $keycount++;
   if($value !== 0) {
     $valuecount++;
@@ -242,7 +243,6 @@ if ($response == "") {
   echo 'Database Node OK';
 }
 
-$lottofinal = json_decode($response);
 
 
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
