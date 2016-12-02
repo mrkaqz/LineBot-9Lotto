@@ -230,3 +230,6 @@ if ($response == "") {
 }else{
   echo 'Database Node OK';
 }
+
+$lottofinal = json_decode($response);
+echo 'Array count = '.count($lottofinal);
