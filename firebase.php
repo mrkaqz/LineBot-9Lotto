@@ -230,7 +230,7 @@ if ($response == "") {
 }
 
 $lottofinal = json_decode($response);
-echo '<br>Array count = '.count($lottofinal);
+echo '<br>Array count = '.var_dump($lottofinal->count());
 echo '<br>Not-Empty Array = '.count(array_filter($lottofinal));
 echo '<br>';
 var_dump($lottofinal);
