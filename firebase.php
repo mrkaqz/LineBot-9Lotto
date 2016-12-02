@@ -190,7 +190,7 @@
       $lottoday = "01";
     }
     $lottodate = $year.$month.$lottoday;
-    $lottodate = '20161116'; 
+    $lottodate = '20161116';
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/lotto'.$lottodate.'.json';
 
@@ -213,6 +213,7 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 */
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 $response = curl_exec($ch);
 curl_close($ch);
@@ -220,6 +221,9 @@ curl_close($ch);
 
 echo '<br><br> Respond: ';
 echo $response;
+echo '<br> HTTP Code: ';
+echo $httpcode;
+echo '<br>';
 
 if ($response == "") {
   echo 'No Database';
