@@ -252,7 +252,5 @@ echo '<br />';
 echo gettype($lottofinal);
 
 $newBody = 'ตรวจหวย​ 123450';
-$newBody = str_replace("&#8203;", "", $newBody);
-$newBody = str_replace("\xE2\x80\x8C", "", $newBody);
 $newBody = str_replace("\xE2\x80\x8B", "", $newBody);
 echo $newBody;
