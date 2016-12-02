@@ -56,6 +56,7 @@ if($value !== "") {
 }
 
 $lottofinal = json_decode($response);
+$debugmsg .= 'Http Code '.var_dump($lottofinal).chr(10);
 
 $nprize = 173;
 
