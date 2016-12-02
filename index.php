@@ -185,3 +185,16 @@
 
 
 ?>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDEz5LPtd5fFeHdYgSFbapGdZuUoUlWg2s",
+    authDomain: "lotto-13fa4.firebaseapp.com",
+    databaseURL: "https://lotto-13fa4.firebaseio.com",
+    storageBucket: "lotto-13fa4.appspot.com",
+    messagingSenderId: "70510649826"
+  };
+  firebase.initializeApp(config);
+</script>
