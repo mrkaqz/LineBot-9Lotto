@@ -196,7 +196,7 @@ $response = curl_exec($ch);
 
 if (!$response)
 {
-    echo 'Failed';
+    echo $response;
 }else{
     echo 'OK';
 }
