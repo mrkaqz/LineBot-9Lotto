@@ -218,3 +218,9 @@ $response = curl_exec($ch);
 
 echo '<br /> Respond: ';
 echo $response;
+
+if ($response == "") {
+  echo 'No Database';
+}else{
+  echo 'Database Node OK';
+}
