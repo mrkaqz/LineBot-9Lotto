@@ -167,11 +167,10 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 
 }else{
-	$lottofinal = {};
 	foreach ($lottodb as $key => $value) {
 		$lottofinal[$key] = $value;
 	}
-	
+
 }
  	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
