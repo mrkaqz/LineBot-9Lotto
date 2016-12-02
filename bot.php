@@ -546,7 +546,6 @@ if (!is_null($events['events'])) {
 		$replyMsg .= "เลขท้าย 2 ตัว";
 		$replyMsg .= chr(10);
 		$replyMsg .= $lottofinal['d2'];
-		$replyMsg .= chr(10).chr(10);
 
 
 			//reply back
