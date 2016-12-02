@@ -242,9 +242,11 @@ echo '<br>';
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
 echo '<br />';
 
+echo gettype($lottodb);
 
 foreach ($lottodb as $key => $value) {
   $lottofinal[$key] = $value;
 }
-
-echo $lottofinal['no1'];
+echo gettype($lottodb);
+echo '<br />';
+echo gettype($lottofinal);
