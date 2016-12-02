@@ -1,7 +1,6 @@
 <?
 
 
-    //$lottourl = 'https://glacial-anchorage-14478.herokuapp.com/kapook.php';
     $lottourl = 'http://lottery.kapook.com/';
 
     echo 'Source: '.$lottourl;
@@ -180,15 +179,26 @@
     }
 
     echo '<br />';
-    echo 'JSON : ';
+
+    // Get Lotto Date
+    $year = date('Y');
+    $month = date('m');
+    $day = date('d');
+    if ($day >= 16) {
+      $lottoday = "16";
+    }else{
+      $lottoday = "01";
+    }
+    $lottodate = $year.$month.$lottoday;
 
 
-$url = 'https://lotto-13fa4.firebaseio.com/lottodate.json';
+$dburl = 'https://lotto-13fa4.firebaseio.com/lotto'.$lottodate.'.json';
 
 $data = json_encode($lottofinal);
+echo 'JSON : '.$data;
 
 $ch = curl_init();
-curl_setopt( $ch, CURLOPT_URL,$url);
+curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
