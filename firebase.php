@@ -9,8 +9,8 @@
     }else{
       $lottoday = "01";
     }
-    $lottodate = $year.$month.$lottoday;
-    //$lottodate = '20161116';
+    //$lottodate = $year.$month.$lottoday;
+    $lottodate = '20161116';
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
 
@@ -37,7 +37,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 // Create Firebase DB
 
-$lottourl = 'http://lottery.kapook.com/';
+$lottourl = 'http://lottery.kapook.com/2559/2016-11-16.html';
 
 echo 'Source: '.$lottourl;
 echo '<br />';
