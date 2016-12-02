@@ -61,6 +61,9 @@ $dom = new DOMDocument();
 libxml_use_internal_errors(true);
 $dom->loadHTMLFile($lottourl);
 
+$data = $dom->getElementById('spLottoDate');
+$lottofinal['spLottoDate'] = $data->nodeValue;
+
 // รางวัล
 
 if(!strstr($GenStr,'GenStr=""')){
