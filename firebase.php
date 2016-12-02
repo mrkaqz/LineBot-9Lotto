@@ -235,7 +235,7 @@ $keycount=0;$valuecount=0;
 
 foreach ($lottofinal as $key => $value) {
   $keycount++;
-  if($valuecount !== 0) {
+  if($value !== 0) {
     $valuecount++;
   }
 }
