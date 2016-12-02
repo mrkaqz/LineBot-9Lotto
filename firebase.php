@@ -190,7 +190,7 @@
       $lottoday = "01";
     }
     $lottodate = $year.$month.$lottoday;
-    $lottodate = '20161116';
+    //$lottodate = '20161116';
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/lotto'.$lottodate.'.json';
 
