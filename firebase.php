@@ -202,7 +202,7 @@ echo 'JSON : '.$data;
 $ch = curl_init();
 
 // Read Firebase DB
-curl_setopt( $curl, CURLOPT_URL,$dburl);
+curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 /*
