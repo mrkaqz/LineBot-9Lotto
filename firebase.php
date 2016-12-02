@@ -250,3 +250,7 @@ foreach ($lottodb as $key => $value) {
 echo gettype($lottodb);
 echo '<br />';
 echo gettype($lottofinal);
+
+$newBody = 'ตรวจหวย​ 123450';
+$newBody = str_replace("&#8203;", "", $newBody);
+echo $newBody;
