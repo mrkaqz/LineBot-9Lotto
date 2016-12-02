@@ -55,15 +55,9 @@ if($value !== "") {
 	}
 }
 
-$replyMsg = chr(10).'Key: '.$keycount.' Value: '.$valuecount;
-
-$lottofinal = json_decode($response);
-$debugmsg .= 'Http Code '.var_dump($lottofinal).chr(10);
-
 $nprize = 173;
-/*
-if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
+if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
@@ -172,8 +166,13 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	$response = curl_exec($ch);
 
 
+}else{
+	$lottofinal = {};
+	foreach ($lottodb as $key => $value) {
+		$lottofinal[$key] = $value;
 	}
-*/
+	
+}
  	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
 
