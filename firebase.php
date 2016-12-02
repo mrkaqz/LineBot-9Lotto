@@ -190,7 +190,7 @@
       $lottoday = "01";
     }
     $lottodate = $year.$month.$lottoday;
-
+    $lottodate = '20161116'; 
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/lotto'.$lottodate.'.json';
 
@@ -215,8 +215,10 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 */
 
 $response = curl_exec($ch);
+curl_close($ch);
 
-echo '<br /> Respond: ';
+
+echo '<br><br> Respond: ';
 echo $response;
 
 if ($response == "") {
