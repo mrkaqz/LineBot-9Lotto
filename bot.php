@@ -38,23 +38,24 @@ function getlottoData($lottourl,$lottodate){
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
 
-
 $ch = curl_init();
 
 // Read Firebase DB
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
+$lottodb = json_decode($response);
+
 
 $keycount=0;$valuecount=0;
-$lottodb = json_decode($response);
 foreach ($lottodb as $key => $value) {
 $keycount++;
 if($value !== "") {
 	$valuecount++;
 	}
 }
-$lottofinal = $lottodb;
+
+$lottofinal = json_decode($response);
 
 $nprize = 173;
 
