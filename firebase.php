@@ -209,7 +209,7 @@ $keycount=0;$valuecount=0;
 $lottodb = json_decode($response);
 foreach ($lottodb as $key => $value) {
   $keycount++;
-  if($value !== 0) {
+  if($value !== "") {
     $valuecount++;
   }
 }
