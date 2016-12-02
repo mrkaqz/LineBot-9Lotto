@@ -61,7 +61,7 @@ $lottofinal = json_decode($response);
 $debugmsg .= 'Http Code '.var_dump($lottofinal).chr(10);
 
 $nprize = 173;
-
+/*
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 
@@ -173,8 +173,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 
 	}
-
-
+*/
  	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
 
@@ -499,7 +498,6 @@ if (!is_null($events['events'])) {
 	        $loopkey = 'no5:'.$i;
 	        $replyMsg .= $lottofinal[$loopkey]." ";
 	    }
-
 
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
