@@ -496,7 +496,7 @@ if (!is_null($events['events'])) {
 				"ดูปากณัชชานะคะ ชิตังเม โป้ง รวย งวดหน้าถูกแน่นวล"
 			);
 
-			$replyMsg .= chr(10).$eatword[rand(0,count($eatword)-1)];
+			$replyMsg .= $eatword[rand(0,count($eatword)-1)];
 
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
