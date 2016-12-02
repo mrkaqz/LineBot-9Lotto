@@ -33,7 +33,33 @@ function sendreply($msg,$token,$akey) {
 }
 
 
-function getlottoData($lottourl){
+function getlottoData($lottourl,$lottodate){
+
+
+$dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
+
+
+$ch = curl_init();
+
+// Read Firebase DB
+curl_setopt( $ch, CURLOPT_URL,$dburl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+
+$keycount=0;$valuecount=0;
+$lottodb = json_decode($response);
+foreach ($lottodb as $key => $value) {
+$keycount++;
+if($value !== "") {
+	$valuecount++;
+	}
+}
+$lottofinal = $lottodb;
+
+$nprize = 173;
+
+if ( $keycount !== $nprize or $valuecount !== $nprize) {
+
 
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
@@ -132,7 +158,25 @@ function getlottoData($lottourl){
 
 	}
 
+	$data = json_encode($lottofinal);
+
+	// PUT to Firebase DB
+	curl_setopt( $ch, CURLOPT_URL,$dburl);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+
+
+	}
+
+
+ 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$debugmsg .= 'Http Code '.$httpcode.chr(10);
+
+	curl_close($ch);
 	return $lottofinal;
+
 
 }
 
@@ -212,7 +256,19 @@ if (!is_null($events['events'])) {
 			$replyMsg .= $uname." ";
 			*/
 
-			// Lotto
+			// Get Lotto Date
+			$year = date('Y');
+			$month = date('m');
+			$day = date('d');
+			if ($day >= 16) {
+				$lottoday = "16";
+			}else{
+				$lottoday = "01";
+			}
+			$currentlottodate = $year.$month.$lottoday;
+
+
+			// Lotto section
 
 			$offset = strpos($text,"ตรวจหวย ");
 			$number = iconv_substr($text,$offset+8);
@@ -247,7 +303,7 @@ if (!is_null($events['events'])) {
 
 				$kurl = 'http://lottery.kapook.com/';
 
-				$lottofinal = getlottoData($kurl);
+				$lottofinal = getlottoData($kurl,$currentlottodate);
 				$Win = false;
 				// เช็ค 6 หลัก
 				foreach ($lottofinal as $prize => $nlotto) {
@@ -353,11 +409,13 @@ if (!is_null($events['events'])) {
 				$kyears = $kyear-543;
 
 				$kurl = 'http://lottery.kapook.com/'.$kyear.'/'.$kyears.'-'.$kmonth.'-'.$kday.'.html';
+				$checklottodate = $kyears.$kmonth.$kday;
+				$lottofinal = getlottoData($kurl,$checklottodate);
 			}else{
 				$kurl = 'http://lottery.kapook.com/';
+				$lottofinal = getlottoData($kurl,$currentlottodate);
 			}
 
-			$lottofinal = getlottoData($kurl);
 
 			//งวด
 			$replyMsg .= "งวดวันที่ ";
@@ -511,7 +569,7 @@ if (!is_null($events['events'])) {
 		$kurl = 'http://lottery.kapook.com/';
 
 
-		$lottofinal = getlottoData($kurl);
+		$lottofinal = getlottoData($kurl,$currentlottodate);
 
 		//งวด
 		$replyMsg .= "งวดวันที่ ";
