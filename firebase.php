@@ -241,6 +241,10 @@ echo '<br>';
 
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
 echo '<br />';
+
+$lottofinal = {};
 foreach ($lottodb as $key => $value) {
-  echo $key.'='.$value.'<br />';
+  $lottofinal[$key] = $value;
 }
+
+echo var_dump($lottofianl);
