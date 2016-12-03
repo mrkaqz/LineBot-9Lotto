@@ -3,7 +3,7 @@
   <title>Firebase</title>
 </head>
 <body>
-  
+
 <form action="firebase.php" method="get">
 <select name="year">
   <option value="2016">2016</option>
@@ -83,7 +83,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 // Create Firebase DB
 
-$lottourl = 'http://lottery.kapook.com/'.$year+543/$year.'-'.$month.'-'.$lottoday.'.html';
+$lottourl = 'http://lottery.kapook.com/'.$year+543.'/'.$year.'-'.$month.'-'.$lottoday.'.html';
 
 echo 'Source: '.$lottourl;
 echo '<br />';
@@ -302,5 +302,6 @@ echo gettype($lottofinal);
 
 
 ?>
+
 </body>
 </html>
