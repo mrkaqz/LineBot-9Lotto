@@ -114,72 +114,77 @@ $lottofinal['spLottoDate'] = $data->nodeValue;
 // รางวัล
 
 
-	if(!(strstr($GenStr,'GenStr=""') or strstr($html,'GenStr='))){
+	if(strstr($GenStr,'GenStr=""') or !strstr($html,'GenStr=')){
+
+    echo 'No Gen';
+    // รางวัลที่ 1
+    $data = $dom->getElementById('no1');
+    $lottofinal['no1'] = $data->nodeValue;
+
+    for ($i = 1; $i <= 2; $i++) {
+        $loopkey = 'd3:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //เลขท้าย 3 ตัว
+    for ($i = 3; $i <= 4; $i++) {
+        $loopkey = 'd3:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //เลขท้าย 2 ตัว
+    $data = $dom->getElementById('d2');
+    $lottofinal['d2'] = $data->nodeValue;
+
+    //ใกล้เคียงรางวัลที่ 1
+    for ($i = 1; $i <= 2; $i++) {
+        $loopkey = 'no1nr:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //รางวัลที่ 2
+    for ($i = 1; $i <= 5; $i++) {
+        $loopkey = 'no2:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //รางวัลที่ 3
+    for ($i = 1; $i <= 10; $i++) {
+        $loopkey = 'no3:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //รางวัลที่ 4
+    for ($i = 1; $i <= 50; $i++) {
+        $loopkey = 'no4:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+    //รางวัลที่ 5
+    for ($i = 1; $i <= 100; $i++) {
+        $loopkey = 'no5:'.$i;
+        $data = $dom->getElementById($loopkey);
+        $lottofinal[$loopkey] = $data->nodeValue;
+    }
+
+
+}else{
+
+
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
   foreach ($lottoarr as $lotto) {
     $lottoprize = explode("#", $lotto);
     $lottofinal[$lottoprize[0]] = $lottoprize[1];
+
   }
-
-}else{
-echo 'No Gen';
-// รางวัลที่ 1
-$data = $dom->getElementById('no1');
-$lottofinal['no1'] = $data->nodeValue;
-
-for ($i = 1; $i <= 2; $i++) {
-    $loopkey = 'd3:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//เลขท้าย 3 ตัว
-for ($i = 3; $i <= 4; $i++) {
-    $loopkey = 'd3:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//เลขท้าย 2 ตัว
-$data = $dom->getElementById('d2');
-$lottofinal['d2'] = $data->nodeValue;
-
-//ใกล้เคียงรางวัลที่ 1
-for ($i = 1; $i <= 2; $i++) {
-    $loopkey = 'no1nr:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//รางวัลที่ 2
-for ($i = 1; $i <= 5; $i++) {
-    $loopkey = 'no2:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//รางวัลที่ 3
-for ($i = 1; $i <= 10; $i++) {
-    $loopkey = 'no3:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//รางวัลที่ 4
-for ($i = 1; $i <= 50; $i++) {
-    $loopkey = 'no4:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
-
-//รางวัลที่ 5
-for ($i = 1; $i <= 100; $i++) {
-    $loopkey = 'no5:'.$i;
-    $data = $dom->getElementById($loopkey);
-    $lottofinal[$loopkey] = $data->nodeValue;
-}
 
 
 }
