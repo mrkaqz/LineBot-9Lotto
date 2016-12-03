@@ -111,10 +111,13 @@ $dom->loadHTMLFile($lottourl);
 $data = $dom->getElementById('spLottoDate');
 $lottofinal['spLottoDate'] = $data->nodeValue;
 
-echo 'Gen Var:'.$GenStrVar = "";
+
+if ($GenStrVar = ""){
+  echo 'T';
+}else{
+  echo 'F';
+}
 // รางวัล
-
-
 
 	if(!strstr($GenStr,'GenStr=""')){
   echo 'Gen Start';
