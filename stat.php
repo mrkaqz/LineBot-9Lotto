@@ -20,5 +20,11 @@ echo '<br>';
 $data = json_decode($response);
 
 echo gettype($data);
+echo '<br />';
+
+foreach ($data as $key => $value) {
+  echo $key.'=>'.$value;
+}
+
 
  ?>
