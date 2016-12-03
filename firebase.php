@@ -112,9 +112,10 @@ $dom->loadHTMLFile($lottourl);
 $data = $dom->getElementById('spLottoDate');
 $lottofinal['spLottoDate'] = $data->nodeValue;
 
+echo $GenStr;
 // รางวัล
 
-	if(!strstr($GenStr,'GenStr=""') && !strstr($GenStr,'')){
+	if(!strstr($GenStr,'GenStr=""') or !strstr($GenStr,'')){
 
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
