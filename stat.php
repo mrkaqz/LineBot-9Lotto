@@ -17,7 +17,7 @@ echo '<br> HTTP Code: ';
 echo $httpcode;
 echo '<br>';
 
-$data = json_encode($response);
+$data = json_decode($response);
 
 echo gettype($data);
 
