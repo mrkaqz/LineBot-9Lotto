@@ -37,7 +37,7 @@
 </form>
 
 <?php
-/*
+
 if ($_GET["year"] !== ''){
 $year = $_GET["year"];
 $month = $_GET["month"];
@@ -54,7 +54,7 @@ if ($day >= 16) {
 }
 
 }
-*/
+
     $lottodate = $year.$month.$lottoday;
     //$lottodate = '20161116';
 
@@ -82,8 +82,8 @@ $nprize = 174;
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 // Create Firebase DB
-
-$lottourl = 'http://lottery.kapook.com/'.$year+543.'/'.$year.'-'.$month.'-'.$lottoday.'.html';
+$tyear = $year+543;
+$lottourl = 'http://lottery.kapook.com/'.$tyear.'/'.$year.'-'.$month.'-'.$lottoday.'.html';
 
 echo 'Source: '.$lottourl;
 echo '<br />';
