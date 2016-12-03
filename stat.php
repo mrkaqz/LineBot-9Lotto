@@ -27,13 +27,14 @@ $d2 = array();
 $i=0;
 foreach ($data as $key => $value) {
   foreach ($value as $skey => $svalue) {
-    echo $skey.'->'.$svalue.'<br />';
+    //echo $skey.'->'.$svalue.'<br />';
     if ($skey=='d2'){
       $d2[$i]=$svalue;
       $i++;
     }
   }
 }
+
 sort($d2);
 
 for($i=0;$i<count($d2);$i++){
@@ -46,9 +47,10 @@ for($i=0;$i<count($d2);$i++){
 
 arsort($d2stat);
 
-foreach ($d2stat as $key => $value) {
-  echo $key.' = '.$value.'<br />';
-}
+echo 'สถิติเลขท้าย 2 ตัว ทั้งหมด '.$d2.' งวด';
 
+foreach ($d2stat as $key => $value) {
+  echo  'เลขที่ออก '.$key.' จำนวน'.$value.' ครั้ง<br />';
+}
 
  ?>
