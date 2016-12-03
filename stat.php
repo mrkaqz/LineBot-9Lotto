@@ -47,7 +47,7 @@ for($i=0;$i<count($d2);$i++){
 
 arsort($d2stat);
 
-echo 'สถิติเลขท้าย 2 ตัว ทั้งหมด '.count($d2).' งวด';
+echo 'สถิติเลขท้าย 2 ตัว ทั้งหมด '.count($d2).' งวด <br />';
 
 foreach ($d2stat as $key => $value) {
   echo  'เลขที่ออก '.$key.' จำนวน '.$value.' ครั้ง<br />';
