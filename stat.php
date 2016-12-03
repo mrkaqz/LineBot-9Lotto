@@ -21,7 +21,8 @@ $data = json_encode($response);
 
 
 foreach ($data as $key => $value) {
-  echo $value.'<br />';
+  var_dump($value);
+  echo H'<br />';
 }
 
  ?>
