@@ -19,10 +19,6 @@ echo '<br>';
 
 $data = json_encode($response);
 
-
-foreach ($data as $key => $value) {
-  var_dump($key);
-  var_dump($value);
-}
+echo gettype($data);
 
  ?>
