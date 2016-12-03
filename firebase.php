@@ -37,7 +37,7 @@
 </form>
 
 <?php
-
+/*
 if ($_GET["year"] !== ''){
 $year = $_GET["year"];
 $month = $_GET["month"];
@@ -54,7 +54,7 @@ if ($day >= 16) {
 }
 
 }
-
+*/
     $lottodate = $year.$month.$lottoday;
     //$lottodate = '20161116';
 
