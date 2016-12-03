@@ -26,7 +26,7 @@ echo '<br />';
 
 foreach ($data as $key => $value) {
   foreach ($value as $skey => $svalue) {
-    echo $skey.'->'.$svalue;
+    echo $skey.'->'.$svalue.'<br />';
   }
 }
 
