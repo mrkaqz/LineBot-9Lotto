@@ -38,7 +38,7 @@
 
 <?php
 
-if (echo $_GET["year"] !== ''){
+if ($_GET["year"] !== ''){
 $year = $_GET["year"];
 $month = $_GET["month"];
 $lottoday = $_GET["day"];
