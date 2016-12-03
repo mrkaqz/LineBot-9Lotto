@@ -35,8 +35,9 @@ foreach ($data as $key => $value) {
   }
 }
 
-echo $d2;
-
+for($i=0 to count($d2)-1){
+  echo $d2[$i]." ";
+}
 
 
  ?>
