@@ -1,14 +1,54 @@
-<?
+<form action="firebase.php" method="get">
+<select name="year">
+  <option value="2016">2016</option>
+  <option value="2016">2015</option>
+  <option value="2016">2014</option>
+  <option value="2016">2013</option>
+  <option value="2016">2012</option>
+  <option value="2016">2011</option>
+  <option value="2016">2010</option>
+  <option value="2016">2009</option>
+</select>
+<select name="month">
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+</select>
+<select name="day">
+  <option value="01">01</option>
+  <option value="16">02</option>
+</select>
+<input type="submit">
+</form>
 
-    // Get Lotto Date
-    $year = date('Y');
-    $month = date('m');
-    $day = date('d');
-    if ($day >= 16) {
-      $lottoday = "16";
-    }else{
-      $lottoday = "01";
-    }
+<?php
+
+if (echo $_GET["year"] !== ''){
+$year = echo $_GET["year"];
+$month = echo $_GET["month"];
+$lottoday = echo $_GET["day"];
+}else{
+// Get Lotto Date
+$year = date('Y');
+$month = date('m');
+$day = date('d');
+if ($day >= 16) {
+  $lottoday = "16";
+}else{
+  $lottoday = "01";
+}
+
+}
+
     $lottodate = $year.$month.$lottoday;
     //$lottodate = '20161116';
 
@@ -37,7 +77,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 // Create Firebase DB
 
-$lottourl = 'http://lottery.kapook.com/';
+$lottourl = 'http://lottery.kapook.com/'.$year+543/$year.'-'.$month.'-'.$lottoday.'.html';
 
 echo 'Source: '.$lottourl;
 echo '<br />';
@@ -253,7 +293,3 @@ foreach ($lottodb as $key => $value) {
 echo gettype($lottodb);
 echo '<br />';
 echo gettype($lottofinal);
-
-$newBody = 'ตรวจหวย​ 123450';
-$newBody = str_replace("\xE2\x80\x8B", "", $newBody);
-echo $newBody;
