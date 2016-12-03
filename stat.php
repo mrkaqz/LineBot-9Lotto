@@ -22,7 +22,7 @@ $data = json_encode($response);
 
 foreach ($data as $key => $value) {
   var_dump($value);
-  echo H'<br />';
+  echo '<br />';
 }
 
  ?>
