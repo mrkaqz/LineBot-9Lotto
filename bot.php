@@ -85,18 +85,9 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	// รางวัล
 
-	if(!strstr($GenStr,'GenStr=""') && !strstr($GenStr,'')){
+	if(strstr($GenStr,'GenStr=""') or !strstr($html,'GenStr=')){
 
-		$lottoarr = explode("@", $GenStrVar);
-		$i=0;
-		foreach ($lottoarr as $lotto) {
-			$lottoprize = explode("#", $lotto);
-			$lottofinal[$lottoprize[0]] = $lottoprize[1];
-		}
-
-
-	}else{
-
+		
 	// รางวัลที่ 1
 	$data = $dom->getElementById('no1');
 	$lottofinal['no1'] = $data->nodeValue;
@@ -153,6 +144,15 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 			$lottofinal[$loopkey] = $data->nodeValue;
 	}
 
+
+	}else{
+
+		$lottoarr = explode("@", $GenStrVar);
+		$i=0;
+		foreach ($lottoarr as $lotto) {
+			$lottoprize = explode("#", $lotto);
+			$lottofinal[$lottoprize[0]] = $lottoprize[1];
+		}
 
 	}
 
