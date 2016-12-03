@@ -115,8 +115,7 @@ $lottofinal['spLottoDate'] = $data->nodeValue;
 echo 'Gen:'.$GenStr;
 // รางวัล
 
-/*
-	if(!(strstr($GenStr,'GenStr=""') or strstr($GenStr,''))){
+	if(!(strstr($GenStr,'GenStr=""')){
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
@@ -127,8 +126,7 @@ echo 'Gen:'.$GenStr;
 
 
 }else{
-echo 'No Gen';
-*/
+echo 'No Gen String';
 
 // รางวัลที่ 1
 $data = $dom->getElementById('no1');
@@ -281,7 +279,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 echo '<br /> Build DB';
 
-//}
+}
 
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
