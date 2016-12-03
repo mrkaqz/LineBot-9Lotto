@@ -22,8 +22,12 @@ $data = json_decode($response);
 echo gettype($data);
 echo '<br />';
 
+//var_dump($data);
 
-var_dump($data);
-
+foreach ($data as $key => $value) {
+  foreach ($value as $skey => $svalue) {
+    echo $skey.'->'.$svalue;
+  }
+}
 
  ?>
