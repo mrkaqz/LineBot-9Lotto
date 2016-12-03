@@ -85,7 +85,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	// รางวัล
 
-	if(!strstr($GenStr,'GenStr=""')){
+	if(!strstr($GenStr,'GenStr=""') && !strstr($GenStr,'')){
 
 		$lottoarr = explode("@", $GenStrVar);
 		$i=0;
