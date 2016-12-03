@@ -23,7 +23,7 @@ echo gettype($data);
 echo '<br />';
 
 //var_dump($data);
-$d2 = [];
+$d2 = array();
 i=0;
 foreach ($data as $key => $value) {
   foreach ($value as $skey => $svalue) {
