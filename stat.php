@@ -30,7 +30,7 @@ foreach ($data as $key => $value) {
     echo $skey.'->'.$svalue.'<br />';
     if ($skey=='d2'){
       $d2[$i]=$svalue;
-      $i++
+      $i++;
     }
   }
 }
