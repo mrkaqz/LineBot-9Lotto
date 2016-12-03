@@ -37,7 +37,7 @@ foreach ($data as $key => $value) {
 sort($d2);
 
 for($i=0;$i<count($d2);$i++){
-  for($j=0;j<=100;j++){
+  for($j=0;$j<=100;$j++){
     if($d2[$i]==str_pad($j, 2, '0', STR_PAD_LEFT)){
       $d2stat[$d2[$i]]++;
     }
