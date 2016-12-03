@@ -115,7 +115,8 @@ $lottofinal['spLottoDate'] = $data->nodeValue;
 echo 'Gen:'.$GenStr;
 // รางวัล
 
-	if(!(strstr($GenStr,'GenStr=""')){
+
+	if(!strstr($GenStr,'GenStr=""')){
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
@@ -126,8 +127,7 @@ echo 'Gen:'.$GenStr;
 
 
 }else{
-echo 'No Gen String';
-
+echo 'No Gen';
 // รางวัลที่ 1
 $data = $dom->getElementById('no1');
 $lottofinal['no1'] = $data->nodeValue;
