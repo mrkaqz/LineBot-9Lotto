@@ -39,9 +39,9 @@
 <?php
 
 if (echo $_GET["year"] !== ''){
-$year = echo $_GET["year"];
-$month = echo $_GET["month"];
-$lottoday = echo $_GET["day"];
+$year = $_GET["year"];
+$month = $_GET["month"];
+$lottoday = $_GET["day"];
 }else{
 // Get Lotto Date
 $year = date('Y');
