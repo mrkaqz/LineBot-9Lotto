@@ -55,15 +55,9 @@ if($value !== "") {
 	}
 }
 
-$replyMsg = chr(10).'Key: '.$keycount.' Value: '.$valuecount;
-
-$lottofinal = json_decode($response);
-$debugmsg .= 'Http Code '.var_dump($lottofinal).chr(10);
-
-$nprize = 173;
+$nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
-
 
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
@@ -172,9 +166,12 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	$response = curl_exec($ch);
 
 
+}else{
+	foreach ($lottodb as $key => $value) {
+		$lottofinal[$key] = $value;
 	}
 
-
+}
  	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
 
@@ -238,6 +235,8 @@ if (!is_null($events['events'])) {
 		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
 			// Get text sent
 			$text = $event['message']['text'];
+			// Remove Zero width space
+			$text = str_replace("\xE2\x80\x8B", "", $text);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			/* Get User ID and User Name
@@ -366,7 +365,7 @@ if (!is_null($events['events'])) {
 						"ชิตังเม โป้ง รวย!"
 					);
 	          $replyMsg .= chr(10).$endword[rand(0,count($endword)-1)];
-						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+						$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal['spLottoDate'].")";
 
 					}else{
 
@@ -382,7 +381,7 @@ if (!is_null($events['events'])) {
 					  "อย่าเสียใจไป งวดหน้าอาจจะถูกก็ได้ อย่าเพิ่งสิ้นหวัง"
 					);
 	        $replyMsg .= $fword[rand(0,count($fword)-1)];
-					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal[spLottoDate].")";
+					$replyMsg .= chr(10)."(งวดวันที่ ".$lottofinal['spLottoDate'].")";
 
 					$debugmsg .= 'Not Matched '.chr(10);
 
@@ -499,7 +498,6 @@ if (!is_null($events['events'])) {
 	        $loopkey = 'no5:'.$i;
 	        $replyMsg .= $lottofinal[$loopkey]." ";
 	    }
-
 
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
@@ -627,7 +625,6 @@ if (!is_null($events['events'])) {
 			sendreply($replyMsg,$replyToken,$access_token);
 
 		}
-
 
 	}
 }

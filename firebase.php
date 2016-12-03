@@ -31,7 +31,7 @@ foreach ($lottodb as $key => $value) {
   }
 }
 
-$nprize = 173;
+$nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
@@ -60,6 +60,9 @@ $GenStrVar = substr($GenStr, $begin+1, ($end - $begin)-2);
 $dom = new DOMDocument();
 libxml_use_internal_errors(true);
 $dom->loadHTMLFile($lottourl);
+
+$data = $dom->getElementById('spLottoDate');
+$lottofinal['spLottoDate'] = $data->nodeValue;
 
 // รางวัล
 
@@ -240,3 +243,17 @@ echo '<br>';
 
 
 echo '<br />Key: '.$keycount.' Value: '.$valuecount;
+echo '<br />';
+
+echo gettype($lottodb);
+
+foreach ($lottodb as $key => $value) {
+  $lottofinal[$key] = $value;
+}
+echo gettype($lottodb);
+echo '<br />';
+echo gettype($lottofinal);
+
+$newBody = 'ตรวจหวย​ 123450';
+$newBody = str_replace("\xE2\x80\x8B", "", $newBody);
+echo $newBody;
