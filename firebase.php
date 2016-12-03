@@ -116,7 +116,7 @@ echo 'Gen Var:'.$GenStrVar;
 // รางวัล
 
 
-	if(!strstr($GenStr,'GenStr=""')){
+	if(!strstr($GenStr,'GenStr=""') or $GenStrVar=""){
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
