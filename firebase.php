@@ -1,3 +1,9 @@
+<html>
+<head>
+  <title>Firebase</title>
+</head>
+<body>
+  
 <form action="firebase.php" method="get">
 <select name="year">
   <option value="2016">2016</option>
@@ -293,3 +299,8 @@ foreach ($lottodb as $key => $value) {
 echo gettype($lottodb);
 echo '<br />';
 echo gettype($lottofinal);
+
+
+?>
+</body>
+</html>
