@@ -22,9 +22,8 @@ $data = json_decode($response);
 echo gettype($data);
 echo '<br />';
 
-foreach ($data as $key => $value) {
-  echo $data->$key;
-}
+
+var_dump($data);
 
 
  ?>
