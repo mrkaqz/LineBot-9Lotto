@@ -114,8 +114,8 @@ $lottofinal['spLottoDate'] = $data->nodeValue;
 
 // รางวัล
 
-if(!strstr($GenStr,'GenStr=""')){
-  echo 'Gen OK';
+	if(!strstr($GenStr,'GenStr=""') && !strstr($GenStr,'')){
+
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
   foreach ($lottoarr as $lotto) {
