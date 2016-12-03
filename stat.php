@@ -47,6 +47,6 @@ for($i=0;$i<count($d2);$i++){
 foreach ($d2stat as $key => $value) {
   echo $key.' = '.$value.'<br />';
 }
-}
+
 
  ?>
