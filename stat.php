@@ -44,6 +44,8 @@ for($i=0;$i<count($d2);$i++){
   }
 }
 
+arsort($d2stat);
+
 foreach ($d2stat as $key => $value) {
   echo $key.' = '.$value.'<br />';
 }
