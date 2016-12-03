@@ -23,12 +23,20 @@ echo gettype($data);
 echo '<br />';
 
 //var_dump($data);
-
+$d2 = [];
+i=0;
 foreach ($data as $key => $value) {
-    var_dump($value);
   foreach ($value as $skey => $svalue) {
     echo $skey.'->'.$svalue.'<br />';
+    if ($skey=='d2'){
+      $d2[$i]=$svalue;
+      $i++
+    }
   }
 }
+
+echo $d2;
+
+
 
  ?>
