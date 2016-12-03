@@ -112,7 +112,7 @@ $dom->loadHTMLFile($lottourl);
 $data = $dom->getElementById('spLottoDate');
 $lottofinal['spLottoDate'] = $data->nodeValue;
 
-echo 'Gen:'.$GenStr;
+echo 'Gen Var:'.$GenStrVar;
 // รางวัล
 
 
@@ -124,7 +124,6 @@ echo 'Gen:'.$GenStr;
     $lottoprize = explode("#", $lotto);
     $lottofinal[$lottoprize[0]] = $lottoprize[1];
   }
-
 
 }else{
 echo 'No Gen';
