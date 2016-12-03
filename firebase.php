@@ -32,6 +32,8 @@
 <select name="day">
   <option value="01">01</option>
   <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="30">30</option>
 </select>
 <input type="submit">
 </form>
