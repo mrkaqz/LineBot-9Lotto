@@ -21,7 +21,7 @@ $data = json_encode($response);
 
 
 foreach ($data as $key => $value) {
-  echo $key.'<br />';
+  echo $value.'<br />';
 }
 
  ?>
