@@ -25,6 +25,7 @@ echo '<br />';
 //var_dump($data);
 
 foreach ($data as $key => $value) {
+    var_dump($value);
   foreach ($value as $skey => $svalue) {
     echo $skey.'->'.$svalue.'<br />';
   }
