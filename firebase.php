@@ -103,7 +103,6 @@ $end   = strrpos($GenStr, '""');
 
 $GenStrVar = substr($GenStr, $begin+1, ($end - $begin)-2);
 
-//echo $GenStrVar;
 
 $dom = new DOMDocument();
 libxml_use_internal_errors(true);
@@ -112,11 +111,12 @@ $dom->loadHTMLFile($lottourl);
 $data = $dom->getElementById('spLottoDate');
 $lottofinal['spLottoDate'] = $data->nodeValue;
 
-echo 'Gen Var:'.$GenStrVar;
+echo 'Gen Var:'.$GenStrVar = "";
 // รางวัล
 
 
-	if(!strstr($GenStr,'GenStr=""') or $GenStrVar=""){
+
+	if(!strstr($GenStr,'GenStr=""')){
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
