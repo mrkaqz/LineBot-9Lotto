@@ -111,15 +111,10 @@ $dom->loadHTMLFile($lottourl);
 $data = $dom->getElementById('spLottoDate');
 $lottofinal['spLottoDate'] = $data->nodeValue;
 
-echo gettype($GenStrVar);
-if ($GenStrVar = ""){
-  echo 'T';
-}else{
-  echo 'F';
-}
 // รางวัล
 
-	if(!strstr($GenStr,'GenStr=""')){
+
+	if(!(strstr($GenStr,'GenStr=""') or strstr($html,'GenStr='))){
   echo 'Gen Start';
   $lottoarr = explode("@", $GenStrVar);
   $i=0;
