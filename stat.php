@@ -21,9 +21,6 @@ $data = json_encode($response);
 
   echo $data['lotto20120116']['d2'];
 
-foreach ($data as $key => $value) {
-  var_dump($value);
-  echo '<br />';
-}
+  var_dump($data);
 
  ?>
