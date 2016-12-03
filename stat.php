@@ -34,7 +34,7 @@ foreach ($data as $key => $value) {
     }
   }
 }
-
+sort($d2);
 for($i=0;$i<count($d2);$i++){
   echo $d2[$i]." ";
 }
