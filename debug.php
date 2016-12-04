@@ -9,6 +9,6 @@ foreach ($objstat[0] as $key => $value) {
 }
 
 $x = '44';
-echo 'เลข '.$x.' เคยออกมาแล้ว '.$d2array[$x].' ครั้ง';
+echo $d2array[$x];
 
 ?>
