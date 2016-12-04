@@ -49,13 +49,13 @@ for($i=0;$i<count($d2);$i++){
   }
 }
 
-$json[]= array('countd2' => count($d2));
+$json2[]= array('countd2' => count($d2));
 
 foreach ($d2stat as $key => $value) {
-  $json[]= array($key => $value);
+  $json2[]= array($key => $value);
 }
 
-$obj[] = array( 'd2stat' => $json);
+$obj[] = array( 'd2stat' => $json2);
 
 
 // เลขท้าย 3 ตัว
@@ -82,13 +82,13 @@ for($i=0;$i<count($d3);$i++){
   }
 }
 
-$json[]= array('countd3' => count($d3));
+$json3[]= array('countd3' => count($d3));
 
 foreach ($d3stat as $key => $value) {
-  $json[]= array($key => $value);
+  $json3[]= array($key => $value);
 }
 
-$obj[] = array( 'd3stat' => $json);
+$obj[] = array( 'd3stat' => $json3);
 
 $jsonstring = json_encode($obj);
 echo $jsonstring;
