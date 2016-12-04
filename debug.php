@@ -8,8 +8,6 @@ foreach ($objstat[0] as $key => $value) {
     $d2array = $value;
 }
 
-foreach ($d2array as $key => $value) {
-  echo $key.'=>'.$value.'<br />';
-}
+echo gettype($d2array);
 
 ?>
