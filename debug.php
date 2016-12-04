@@ -4,9 +4,11 @@ $stathtml = file_get_contents('http://glacial-anchorage-14478.herokuapp.com/stat
 
 $objstat = json_decode($stathtml);
 
-
 foreach ($objstat[0] as $key => $value) {
-  echo $key.' => '.$value.'<br />';
+    $d2array = $value;
 }
+
+$x = '44';
+echo 'เลข '.$x.' เคยออกมาแล้ว '.$d2array[$x].' ครั้ง';
 
 ?>
