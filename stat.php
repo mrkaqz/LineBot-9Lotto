@@ -45,12 +45,14 @@ for($i=0;$i<count($d2);$i++){
   }
 }
 
-arsort($d2stat);
-
-echo 'สถิติเลขท้าย 2 ตัว ทั้งหมด '.count($d2).' งวด <br />';
+$json[]= array('count' => count($d2));
 
 foreach ($d2stat as $key => $value) {
-  echo  'เลขที่ออก '.$key.' จำนวน '.$value.' ครั้ง<br />';
+  $json[]= array($key => $value);
 }
+
+$jsonstring = json_encode($json);
+echo $jsonstring;
+
 
  ?>
