@@ -13,14 +13,7 @@ $response = curl_exec($ch);
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
-echo '<br> HTTP Code: ';
-echo $httpcode;
-echo '<br>';
-
 $data = json_decode($response);
-
-echo gettype($data);
-echo '<br />';
 
 //var_dump($data);
 
