@@ -23,6 +23,10 @@ echo gettype($data);
 echo '<br />';
 
 //var_dump($data);
+
+
+// เลขท้ายสองตัว
+
 $d2 = array();
 $i=0;
 foreach ($data as $key => $value) {
@@ -47,13 +51,47 @@ for($i=0;$i<count($d2);$i++){
 
 $json[]= array('count' => count($d2));
 
-
-
 foreach ($d2stat as $key => $value) {
   $json[]= array($key => $value);
 }
 
 $obj[] = array( 'd2stat' => $json);
+
+
+// เลขท้าย 3 ตัว
+
+$d3 = array();
+$i=0;
+foreach ($data as $key => $value) {
+  foreach ($value as $skey => $svalue) {
+    //echo $skey.'->'.$svalue.'<br />';
+    if (strstr($skey,'d3')){
+      $d3[$i]=$svalue;
+      $i++;
+    }
+  }
+}
+
+sort($d3);
+
+for($i=0;$i<count($d3);$i++){
+  for($j=0;$j<=100;$j++){
+    if($d3[$i]==str_pad($j, 3, '0', STR_PAD_LEFT)){
+      $d3stat[$d3[$i]]++;
+    }
+  }
+}
+
+$json[]= array('count' => count($d3));
+
+foreach ($d3stat as $key => $value) {
+  $json[]= array($key => $value);
+}
+
+$obj[] = array( 'd3stat' => $json);
+
+
+
 
 $jsonstring = json_encode($obj);
 echo $jsonstring;
