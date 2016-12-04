@@ -13,6 +13,8 @@ $response = curl_exec($ch);
 $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 curl_close($ch);
 
+
+
 $data = json_decode($response);
 
 //var_dump($data);
@@ -84,7 +86,20 @@ foreach ($d3stat as $key => $value) {
 $obj[] = array( 'd3stat' => $json3);
 
 $jsonstring = json_encode($obj);
+
+if ($_GET['type'] == 'json'){
+
 echo $jsonstring;
+
+}else{
+
+  echo '<br> HTTP Code: ';
+  echo $httpcode;
+  echo '<br>';
+  
+}
+
+
 
 
  ?>
