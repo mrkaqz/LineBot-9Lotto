@@ -8,6 +8,6 @@ foreach ($objstat[0] as $key => $value) {
     $d2array = $value;
 }
 
-var_dump($d2array);
+print_r($d2array);
 
 ?>
