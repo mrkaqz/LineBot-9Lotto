@@ -42,7 +42,7 @@ foreach ($data as $key => $value) {
 sort($d2);
 
 for($i=0;$i<count($d2);$i++){
-  for($j=0;$j<=100;$j++){
+  for($j=0;$j<=99;$j++){
     if($d2[$i]==str_pad($j, 2, '0', STR_PAD_LEFT)){
       $d2stat[$d2[$i]]++;
     }
@@ -75,7 +75,7 @@ foreach ($data as $key => $value) {
 sort($d3);
 
 for($i=0;$i<count($d3);$i++){
-  for($j=0;$j<=100;$j++){
+  for($j=0;$j<=999;$j++){
     if($d3[$i]==str_pad($j, 3, '0', STR_PAD_LEFT)){
       $d3stat[$d3[$i]]++;
     }
@@ -89,9 +89,6 @@ foreach ($d3stat as $key => $value) {
 }
 
 $obj[] = array( 'd3stat' => $json);
-
-
-
 
 $jsonstring = json_encode($obj);
 echo $jsonstring;
