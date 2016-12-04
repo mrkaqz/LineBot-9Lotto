@@ -82,7 +82,7 @@ for($i=0;$i<count($d3);$i++){
   }
 }
 
-$json[]= array('countd2' => count($d3));
+$json[]= array('countd3' => count($d3));
 
 foreach ($d3stat as $key => $value) {
   $json[]= array($key => $value);
