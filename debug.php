@@ -9,9 +9,10 @@ foreach ($objstat[0] as $key => $value) {
 }
 
 foreach ($d2array as $key => $value) {
-  echo $key;
+  echo 'Key: '.$key;
   echo '<br />';
-  echo $value;
+  var_dump($value);
+  echo '<br />';
 }
 
 
