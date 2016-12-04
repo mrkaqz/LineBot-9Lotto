@@ -2,7 +2,7 @@
 $access_token = 'prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=';
 $debugmsg = "";
 $replyMsg = "";
-$debugmode = true;
+$debugmode = false;
 
 
 function sendreply($msg,$token,$akey) {
@@ -89,7 +89,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	if(strstr($GenStr,'GenStr=""') or !strstr($html,'GenStr=')){
 
-	$debugmsg .= 'Data: Reed Web'.chr(10);
+	$debugmsg .= 'Data: Read Web'.chr(10);
 	// รางวัลที่ 1
 	$data = $dom->getElementById('no1');
 	$lottofinal['no1'] = $data->nodeValue;
