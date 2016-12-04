@@ -47,11 +47,15 @@ for($i=0;$i<count($d2);$i++){
 
 $json[]= array('count' => count($d2));
 
+
+
 foreach ($d2stat as $key => $value) {
   $json[]= array($key => $value);
 }
 
-$jsonstring = json_encode($json);
+$obj[] = array( 'd2stat' => $json);
+
+$jsonstring = json_encode($obj);
 echo $jsonstring;
 
 
