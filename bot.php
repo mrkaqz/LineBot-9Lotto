@@ -36,6 +36,7 @@ function sendreply($msg,$token,$akey) {
 
 function getlottoData($lottourl,$lottodate){
 
+global $debugmsg;
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
 
