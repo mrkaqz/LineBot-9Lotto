@@ -8,7 +8,8 @@ foreach ($objstat[0] as $key => $value) {
     $d2array = $value;
 }
 
-$x = '44';
-echo $d2array[$x];
+foreach ($d2array as $key => $value) {
+  echo $key.'=>'.$value.'<br />';
+}
 
 ?>
