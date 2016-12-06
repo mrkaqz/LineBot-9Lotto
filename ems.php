@@ -5,6 +5,7 @@ $tracking='EY533045175TH';
 
 $ch = curl_init();
 $url2="http://www.thailandpost.com/php/webservice.php";
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 curl_setopt($ch, CURLOPT_URL, $url2);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
