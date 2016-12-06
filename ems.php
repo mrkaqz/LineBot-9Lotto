@@ -18,6 +18,6 @@ $obj = json_decode($result,true);
 
 foreach($obj as $a)
 {
-echo "$a[DateTime] $a[Location] $a[StatusName] $a[Description]<br />"
+echo "$a[DateTime] $a[Location] $a[StatusName] $a[Description]<br />";
 }
 ?>
