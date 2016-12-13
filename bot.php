@@ -633,7 +633,7 @@ if (!is_null($events['events'])) {
 
 			$leaveurl = 'https://api.line.me/v2/bot/group/'.$groupid.'/leave';
 
-			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$groupid.' '.$roomid;
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl;
 
 			sendreply($replyMsg,$replyToken,$access_token);
 
