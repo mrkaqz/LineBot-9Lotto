@@ -245,6 +245,8 @@ if (!is_null($events['events'])) {
 			// Get User ID and User Name
       $userid = $event['source']['userId'];
 			$groupid = $event['source']['groupId'];
+			$roomid = $event['source']['roomId'];
+
 
 			/*
 			$uurl = 'https://api.line.me/v2/bot/profile/'.$userid;
@@ -631,7 +633,7 @@ if (!is_null($events['events'])) {
 
 			$leaveurl = 'https://api.line.me/v2/bot/group/'.$groupid.'/leave';
 
-			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl;
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl.' '.$roomid;
 
 			sendreply($replyMsg,$replyToken,$access_token);
 
@@ -641,7 +643,16 @@ if (!is_null($events['events'])) {
 			$lch = curl_init($leaveurl);
 			curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
-			//curl_setopt($lch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
+			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
+			$lresult = curl_exec($lch);
+			curl_close($lch);
+
+			$leaveurl = 'https://api.line.me/v2/bot/room/'.$roomid.'/leave';
+
+			$lch = curl_init($leaveurl);
+			curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
 			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
 			$lresult = curl_exec($lch);
