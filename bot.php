@@ -626,11 +626,11 @@ if (!is_null($events['events'])) {
 
 		if(strstr($text,"บอทกาก")) {
 
-			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$userid;
-			sendreply($replyMsg,$replyToken,$access_token);
-
-
 			$leaveurl = 'https://api.line.me/v2/bot/room/'.$userid.'/leave';
+
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl;
+			sendreply($replyMsg,$replyToken,$access_token);
+			
 
 			$lheaders = array('Authorization: Bearer ' . $access_token);
 
