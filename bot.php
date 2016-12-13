@@ -246,7 +246,6 @@ if (!is_null($events['events'])) {
       $userid = $event['source']['userId'];
 			$groupid = $event['source']['groupId'];
 
-			$evt=var_dump($event);
 			/*
 			$uurl = 'https://api.line.me/v2/bot/profile/'.$userid;
 
@@ -630,9 +629,9 @@ if (!is_null($events['events'])) {
 		if(strstr($text,"บอทกาก")) {
 
 
-			$leaveurl = 'https://api.line.me/v2/bot/room/'.$groupid.'/leave';
+			$leaveurl = 'https://api.line.me/v2/bot/group/'.$groupid.'/leave';
 
-			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl.' '.$evt;
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$leaveurl;
 
 			sendreply($replyMsg,$replyToken,$access_token);
 
