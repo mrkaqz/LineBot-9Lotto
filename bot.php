@@ -640,23 +640,28 @@ if (!is_null($events['events'])) {
 
 			$lheaders = array('Authorization: Bearer ' . $access_token);
 
-			$lch = curl_init($leaveurl);
-			curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
-			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
-			$lresult = curl_exec($lch);
-			curl_close($lch);
+			$curl = curl_init();
 
-			$leaveurl = 'https://api.line.me/v2/bot/room/'.$roomid.'/leave';
+			curl_setopt_array($curl, array(
+			  CURLOPT_URL => $leaveurl,
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => "",
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 30,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => "POST",
+			  CURLOPT_HTTPHEADER => array(
+			    "authorization: Bearer prIA1BgN1nWm2ieB6c9TkgBDSUQ7caE/VM/fHETGGtv1IyUqfJl79o0xwyW5GjtJC7DRrvix6SspnRw2R48NeFCkd/C0AxZt8Bt2yXJmDJRDHWl9gophkrplNu1LP2rwdONSJg0YszFlRwX+KRjMhAdB04t89/1O/w1cDnyilFU=",
+			    "cache-control: no-cache",
+			    "postman-token: 44292a6d-bf4f-8145-2597-40052a11d633"
+			  ),
+			));
 
-			$lch = curl_init($leaveurl);
-			curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
-			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
-			$lresult = curl_exec($lch);
-			curl_close($lch);
+			$response = curl_exec($curl);
+			$err = curl_error($curl);
+
+			curl_close($curl);
+
 
 		}
 
