@@ -626,7 +626,7 @@ if (!is_null($events['events'])) {
 
 		if(strstr($text,"บอทกาก")) {
 
-			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี';
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี '.$userid;
 			sendreply($replyMsg,$replyToken,$access_token);
 
 
