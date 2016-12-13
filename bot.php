@@ -635,12 +635,13 @@ if (!is_null($events['events'])) {
 			$lheaders = array('Authorization: Bearer ' . $access_token);
 
 			$lch = curl_init($leaveurl);
+			curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
+			//curl_setopt($lch, CURLOPT_POSTFIELDS, $post);
 			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
 			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
 			$lresult = curl_exec($lch);
 			curl_close($lch);
-
 
 		}
 
