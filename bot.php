@@ -242,9 +242,9 @@ if (!is_null($events['events'])) {
 			$text = str_replace("\xE2\x80\x8B", "", $text);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
-			/* Get User ID and User Name
+			// Get User ID and User Name
       $userid = $event['source']['userId'];
-
+			/*
 			$uurl = 'https://api.line.me/v2/bot/profile/'.$userid;
 
 			$uheaders = array('Authorization: Bearer ' . $access_token);
@@ -618,6 +618,29 @@ if (!is_null($events['events'])) {
 		}
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
+
+		}
+
+
+		// ไล่บอท
+
+		if(strstr($text,"บอทกาก")) {
+
+			$replyMsg .= 'อย่ามาว่าผมนะ งอล!! หนีดีกว่า พวกนิสัยไม่ดี';
+			sendreply($replyMsg,$replyToken,$access_token);
+
+
+			$leaveurl = 'https://api.line.me/v2/bot/room/'.$userid.'/leave';
+
+			$lheaders = array('Authorization: Bearer ' . $access_token);
+
+			$lch = curl_init($leaveurl);
+			curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($lch, CURLOPT_HTTPHEADER, $lheaders);
+			curl_setopt($lch, CURLOPT_FOLLOWLOCATION, 1);
+			$lresult = curl_exec($lch);
+			curl_close($lch);
+
 
 		}
 
