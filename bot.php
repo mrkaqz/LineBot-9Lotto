@@ -665,7 +665,7 @@ echo "<br />";
 			}
 			$currentlottodate = $year.$month.$lottoday;
 
-echo $lottoday;
+echo $currentlottodate;
 
 
 // Debug Zone
