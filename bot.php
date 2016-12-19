@@ -61,6 +61,7 @@ $nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
+
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
 
@@ -81,7 +82,17 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	libxml_use_internal_errors(true);
 	$dom->loadHTMLFile($lottourl);
 
+	// เช็คงวด
+	$data = $dom->getElementById('spLottoDate');
+	$kapooklottodate = $data->nodeValue;
+
+	$lottodaycheck = substr($lottodate,6,2);
+	$kapookday = intval(substr($kapooklottodate, 0, 2));
+
+	if ($kapookday == $lottodaycheck){
+
 	//งวด
+
 	$data = $dom->getElementById('spLottoDate');
 	$lottofinal['spLottoDate'] = $data->nodeValue;
 
@@ -168,6 +179,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response = curl_exec($ch);
 
+	}
 
 }else{
 	foreach ($lottodb as $key => $value) {
@@ -180,7 +192,6 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	curl_close($ch);
 	return $lottofinal;
-
 
 }
 
