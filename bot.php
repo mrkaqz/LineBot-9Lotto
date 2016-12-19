@@ -278,9 +278,9 @@ if (!is_null($events['events'])) {
 			*/
 
 			// Get Lotto Date
-			$year = 2017;
-			$month = 5;
-			$day = 18;
+			$year = date('Y');
+      $month = date('m');
+      $day = date('d');
 
 			if ($month == 1 and $day < 16) {
 			  $lottoday = "30";
