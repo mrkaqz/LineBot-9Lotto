@@ -10,7 +10,7 @@ if ( ($month == 1 and $day < 16) or ( $month == 12 and $day == 31 )  ) {
   $month = "12";
   $year = $year-1;
 }else{
-  
+
 
 if ($day >= 16) {
   $lottoday = "16";

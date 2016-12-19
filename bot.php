@@ -653,5 +653,19 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 echo "<br />";
+			
+			// Get Lotto Date
+			$year = date('Y');
+			$month = date('m');
+			$day = date('d');
+			if ($day >= 16) {
+				$lottoday = "16";
+			}else{
+				$lottoday = "01";
+			}
+			$currentlottodate = $year.$month.$lottoday;
+
+echo $currentlottodate;
+
 
 // Debug Zone
