@@ -86,7 +86,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	$data = $dom->getElementById('spLottoDate');
 	$kapooklottodate = $data->nodeValue;
 
-	$kapooklottodate = '1 ธันวาคม 2559'
+	$kapooklottodate = '1 ธันวาคม 2559';
 
 	$lottodaycheck = substr($lottodate,6,2);
 	$kapookday = intval(substr($kapooklottodate, 0, 2));
