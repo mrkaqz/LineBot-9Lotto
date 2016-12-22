@@ -4,7 +4,6 @@ $debugmsg = "";
 $replyMsg = "";
 $debugmode = false;
 
-
 function sendreply($msg,$token,$akey) {
 
 	$messages = [
