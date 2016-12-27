@@ -39,9 +39,10 @@ $uri = 'https://lotto-13fa4.firebaseio.com/lottoset/'.$year.'/'.$month.'.json';
 echo $uri;
 echo '<br>';
 
-$check = array($date => 'Checked')
+$check = array($date => 'Checked');
 $data = json_encode($check);
 
+    $ch = curl_init();
 	// PUT to Firebase DB
 	curl_setopt( $ch, CURLOPT_URL,$uri);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
