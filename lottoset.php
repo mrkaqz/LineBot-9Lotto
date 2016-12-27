@@ -19,8 +19,7 @@ $data = json_decode($response);
 
 $lottoset = array();
 $i=0;
-foreach ($data as $key => $value) {
-    echo $key.'->'.$value.'<br />'; 
+foreach ($data as $key => $value) { 
   foreach ($value as $skey => $svalue) {
     //echo $skey.'->'.$svalue.'<br />';
     if ($skey=='spLottoDate'){
