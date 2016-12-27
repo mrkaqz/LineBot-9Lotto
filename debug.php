@@ -18,9 +18,14 @@ $data = json_decode($response);
 foreach ($data as $year => $value) {
  echo $year[0].$year[1].$year[2].$year[3].'<br>';
 
-foreach ($value as $month => $date) {
- echo $month[0].$month[1].'<br>';
-}
+  foreach ($value as $month => $svalue) {
+    echo $month[0].$month[1].'<br>';
+    
+    foreach ($svalue as $date => $check) {
+      echo $date[0].$date[1].' : '.$check.'<br>';
+    }
+
+  }
 
 }
 
