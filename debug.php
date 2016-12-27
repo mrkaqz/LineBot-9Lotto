@@ -1,6 +1,25 @@
 <?php
 
-// Get Lotto Date
+$dburl = 'https://lotto-13fa4.firebaseio.com/lottoset/.json';
+
+
+$ch = curl_init();
+
+// Read Firebase DB
+curl_setopt( $ch, CURLOPT_URL,$dburl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+$data = json_decode($response);
+
+foreach ($data as $key => $value) {
+ echo $key[0].$key[1].$key[2].$key[3];
+}
+
+/* Get Lotto Date
 $year = 2017;
 $month = 5;
 $day = 18;
@@ -28,3 +47,4 @@ $month = str_pad($month, 2, '0', STR_PAD_LEFT);
 $currentlottodate = $year.$month.$lottoday;
 
 echo $currentlottodate;
+*/
