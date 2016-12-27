@@ -21,10 +21,10 @@ $lottoset = array();
 $i=0;
 foreach ($data as $key => $value) { 
     
-    for ($x = 5; $x <= 12; $x++) {
-    echo $key[$x];
-    }
-    echo '<br>';
+
+    $year = $key[5].$key[6].$key[7].$key[8];
+    $month = $key[9].$key[10];
+    $date = $key[11].$key[12];
 
   foreach ($value as $skey => $svalue) {
     //echo $skey.'->'.$svalue.'<br />';
@@ -34,4 +34,9 @@ foreach ($data as $key => $value) {
       $i++;
     }
   }
+
+$uri = 'https://lotto-13fa4.firebaseio.com/lottoset/'.$year.'/'.$month.'.json';
+echo $uri;
+echo '<br>';
 }
+
