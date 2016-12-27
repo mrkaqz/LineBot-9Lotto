@@ -4,7 +4,6 @@ $debugmsg = "";
 $replyMsg = "";
 $debugmode = false;
 
-
 function sendreply($msg,$token,$akey) {
 
 	$messages = [
@@ -61,6 +60,7 @@ $nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
+
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
 
@@ -81,7 +81,18 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	libxml_use_internal_errors(true);
 	$dom->loadHTMLFile($lottourl);
 
+	// เช็คงวด
+	$data = $dom->getElementById('spLottoDate');
+	$kapooklottodate = $data->nodeValue;
+
+
+	$lottodaycheck = substr($lottodate,6,2);
+	$kapookday = intval(substr($kapooklottodate, 0, 2));
+
+	if ($kapookday == $lottodaycheck){
+
 	//งวด
+
 	$data = $dom->getElementById('spLottoDate');
 	$lottofinal['spLottoDate'] = $data->nodeValue;
 
@@ -168,6 +179,7 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response = curl_exec($ch);
 
+	}
 
 }else{
 	foreach ($lottodb as $key => $value) {
@@ -180,7 +192,6 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
 	curl_close($ch);
 	return $lottofinal;
-
 
 }
 
@@ -268,13 +279,29 @@ if (!is_null($events['events'])) {
 
 			// Get Lotto Date
 			$year = date('Y');
-			$month = date('m');
-			$day = date('d');
-			if ($day >= 16) {
-				$lottoday = "16";
+      $month = date('m');
+      $day = date('d');
+
+			if ($month == 1 and $day < 16) {
+			  $lottoday = "30";
+			  $month = "12";
+			  $year = $year-1;
+			}elseif ($month == 12 and $day == 31) {
+			  $lottoday = "30";
+			  $month = "12";
+			  $year = $year;
 			}else{
-				$lottoday = "01";
+
+			if ($day >= 16) {
+			  $lottoday = "16";
+			}else{
+			  $lottoday = "01";
 			}
+
+			}
+
+			$month = str_pad($month, 2, '0', STR_PAD_LEFT);
+
 			$currentlottodate = $year.$month.$lottoday;
 
 
@@ -653,19 +680,5 @@ if (!is_null($events['events'])) {
 }
 echo "OK";
 echo "<br />";
-			
-			// Get Lotto Date
-			$year = date('Y');
-			$month = date('m');
-			$day = date('d');
-			if ($day >= 16) {
-				$lottoday = "16";
-			}else{
-				$lottoday = "01";
-			}
-			$currentlottodate = $year.$month.$lottoday;
-
-echo $currentlottodate;
-
 
 // Debug Zone
