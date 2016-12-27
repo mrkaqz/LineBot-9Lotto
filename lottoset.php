@@ -21,9 +21,10 @@ $lottoset = array();
 $i=0;
 foreach ($data as $key => $value) {
   foreach ($value as $skey => $svalue) {
-    echo $skey.'->'.$svalue.'<br />';
+    //echo $skey.'->'.$svalue.'<br />';
     if ($skey=='spLottoDate'){
       $lottoset[$i]=$svalue;
+      echo $lottoset[$i].'<br>';
       $i++;
     }
   }
