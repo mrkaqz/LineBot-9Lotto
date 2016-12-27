@@ -15,8 +15,13 @@ curl_close($ch);
 
 $data = json_decode($response);
 
-foreach ($data as $key => $value) {
- echo $key[0].$key[1].$key[2].$key[3];
+foreach ($data as $year => $value) {
+ echo $year[0].$year[1].$year[2].$year[3].'<br>';
+
+foreach ($value as $month => $date) {
+ echo $month[0].$month[1].'<br>';
+}
+
 }
 
 /* Get Lotto Date
