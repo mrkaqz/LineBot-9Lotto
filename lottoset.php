@@ -45,7 +45,7 @@ $data = json_encode($check);
     $ch = curl_init();
 	// PUT to Firebase DB
 	curl_setopt( $ch, CURLOPT_URL,$uri);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
 	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response = curl_exec($ch);
