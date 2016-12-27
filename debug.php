@@ -23,6 +23,12 @@ foreach ($data as $year => $value) {
     
     foreach ($svalue as $date => $check) {
       echo $date[0].$date[1].' : '.$check.'<br>';
+
+      if ($check == 'New') {
+        $nextlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
+        echo 'Next Lotto Date : '.$nextlottodate;
+      }
+
     }
 
   }
