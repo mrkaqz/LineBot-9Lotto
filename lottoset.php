@@ -20,7 +20,8 @@ $data = json_decode($response);
 $lottoset = array();
 $i=0;
 foreach ($data as $key => $value) { 
-    for ($x = 0; $x <= 12; $x++) {
+    
+    for ($x = 5; $x <= 12; $x++) {
     echo $key[$x];
     }
     echo '<br>';
