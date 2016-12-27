@@ -15,6 +15,8 @@ curl_close($ch);
 
 $data = json_decode($response);
 
+$nextlottodate = '';
+
 foreach ($data as $year => $value) {
  echo $year[0].$year[1].$year[2].$year[3].'<br>';
 
@@ -24,9 +26,9 @@ foreach ($data as $year => $value) {
     foreach ($svalue as $date => $check) {
       echo $date[0].$date[1].' : '.$check.'<br>';
 
-      if ($check == 'New') {
+      if ($nextlottodate == '' and $check == 'New') {
         $nextlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
-        echo 'Next Lotto Date : '.$nextlottodate;
+        echo 'Next Lotto Date : '.$nextlottodate.'<br>';
       }
 
     }
