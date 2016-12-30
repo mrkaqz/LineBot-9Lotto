@@ -303,7 +303,7 @@ if (!is_null($events['events'])) {
 			$month = str_pad($month, 2, '0', STR_PAD_LEFT);
 
 			$currentlottodate = $year.$month.$lottoday;
-
+			$currentlottodate ='20161230';
 
 			// Lotto section
 
