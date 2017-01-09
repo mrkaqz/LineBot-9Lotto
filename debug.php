@@ -53,7 +53,7 @@ echo "Today: ".$now."<br>";
 
 if ( $now == $nextlottodate){
 	echo "Lotto Date: ".$nextlottodate;
-}elseif{
+}else{
 	echo "Lotto Date: ".$currentlottodate;
 }
 
