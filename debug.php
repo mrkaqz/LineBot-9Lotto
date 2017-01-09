@@ -49,7 +49,7 @@ $nowday = str_pad($nowday, 2, '0', STR_PAD_LEFT);
 
 $now = $nowyear.$nowmonth.$nowday;
 
-$now = '20170117';
+$now = '20170119';
 
 echo "Today: ".$now."<br>";
 
