@@ -236,6 +236,63 @@ function prizeName($code){
 				}
 }
 
+function getlottoSet() {
+
+$dburl = 'https://lotto-13fa4.firebaseio.com/lottoset/.json';
+
+$ch = curl_init();
+
+// Read Firebase DB
+curl_setopt( $ch, CURLOPT_URL,$dburl);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+$data = json_decode($response);
+
+$nextlottodate = '';
+
+foreach ($data as $year => $value) {
+ echo $year[0].$year[1].$year[2].$year[3].'<br>';
+
+  foreach ($value as $month => $svalue) {
+    echo $month[0].$month[1].'<br>';
+    
+    foreach ($svalue as $date => $check) {
+      echo $date[0].$date[1].' : '.$check.'<br>';
+
+      if ($check == 'Checked') {
+          $currentlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
+      }
+
+      if ($nextlottodate == '' and $check == 'New') {
+          $nextlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
+      }
+
+    }
+
+  }
+
+}
+
+$nowyear = date('Y');
+$nowmonth = date('m');
+$nowday = date('d');
+
+$nowmonth = str_pad($nowmonth, 2, '0', STR_PAD_LEFT);
+$nowday = str_pad($nowday, 2, '0', STR_PAD_LEFT);
+
+$now = $nowyear.$nowmonth.$nowday;
+
+if ( $now >= $nextlottodate){
+	return $nextlottodate;
+}else{
+	return $currentlottodate;
+}
+
+}
 
 // Get POST body content
 $content = file_get_contents('php://input');
@@ -254,7 +311,7 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			// Get User ID and User Name
-      $userid = $event['source']['userId'];
+      		$userid = $event['source']['userId'];
 			$groupid = $event['source']['groupId'];
 			$roomid = $event['source']['roomId'];
 
@@ -278,9 +335,13 @@ if (!is_null($events['events'])) {
 			*/
 
 			// Get Lotto Date
+			
+			$currentlottodate = getlottoSet();
+			
+			/*
 			$year = date('Y');
-      $month = date('m');
-      $day = date('d');
+      		$month = date('m');
+      		$day = date('d');
 
 			if ($month == 1 and $day < 16) {
 			  $lottoday = "30";
@@ -304,6 +365,7 @@ if (!is_null($events['events'])) {
 
 			$currentlottodate = $year.$month.$lottoday;
 			$currentlottodate ='20161230';
+			*/
 
 			// Lotto section
 
