@@ -182,10 +182,32 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	}
 
 }else{
+
+	// Read lotto data from DB
 	foreach ($lottodb as $key => $value) {
 		$lottofinal[$key] = $value;
 	}
 	$debugmsg .= 'Data: DB'.chr(10);
+
+	// Gen lottoset table
+	$setyear = substr($lottodate,0,4);
+	$setmonth = substr($lottodate,4,2);
+	$setdate = substr($lottodate,6,2);
+	$uri = 'https://lotto-13fa4.firebaseio.com/lottoset/'.$setyear.'/'.$setmonth.'.json';
+
+	$checked = array($setdate => 'Checked');
+	$setdata = json_encode($checked);
+
+    $setch = curl_init();
+	// PUT to Firebase DB
+	curl_setopt( $setch, CURLOPT_URL,$uri);
+	curl_setopt($setch, CURLOPT_CUSTOMREQUEST, "PATCH");
+	curl_setopt($setch, CURLOPT_POSTFIELDS,$setdata);
+	curl_setopt($setch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($setch);
+	curl_close($setch);
+
+
 }
  	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
@@ -338,34 +360,6 @@ if (!is_null($events['events'])) {
 			
 			$currentlottodate = getlottoSet();
 			
-			/*
-			$year = date('Y');
-      		$month = date('m');
-      		$day = date('d');
-
-			if ($month == 1 and $day < 16) {
-			  $lottoday = "30";
-			  $month = "12";
-			  $year = $year-1;
-			}elseif ($month == 12 and $day == 31) {
-			  $lottoday = "30";
-			  $month = "12";
-			  $year = $year;
-			}else{
-
-			if ($day >= 16) {
-			  $lottoday = "16";
-			}else{
-			  $lottoday = "01";
-			}
-
-			}
-
-			$month = str_pad($month, 2, '0', STR_PAD_LEFT);
-
-			$currentlottodate = $year.$month.$lottoday;
-			$currentlottodate ='20161230';
-			*/
 
 			// Lotto section
 
