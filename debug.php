@@ -39,8 +39,24 @@ foreach ($data as $year => $value) {
   }
 
 }
-echo 'Current Lotto Date : '.$currentlottodate.'<br>';
-echo 'Next Lotto Date : '.$nextlottodate.'<br>';
+
+$nowyear = date('Y');
+$nowmonth = date('m');
+$nowday = date('d');
+
+$nowmonth = str_pad($nowmonth, 2, '0', STR_PAD_LEFT);
+$nowday = str_pad($nowday, 2, '0', STR_PAD_LEFT);
+
+$now = $nowyear.$nowmonth.$nowday;
+
+echo "Today: ".$now."<br>";
+
+if ( $now == $nextlottodate){
+	echo "Lotto Date: ".$nextlottodate;
+}elseif{
+	echo "Lotto Date: ".$currentlottodate;
+}
+
 
 /* Get Lotto Date
 $year = 2017;
