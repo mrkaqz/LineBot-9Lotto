@@ -2,8 +2,7 @@
 
 date_default_timezone_set('Asia/Bangkok');
 
-$dburl = 'https://lotto-13fa4.firebaseio.com/lottoset/.json';
-
+$dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
 
 $ch = curl_init();
 
@@ -11,83 +10,172 @@ $ch = curl_init();
 curl_setopt( $ch, CURLOPT_URL,$dburl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
+$lottodb = json_decode($response);
 
-$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
 
-$data = json_decode($response);
-
-$nextlottodate = '';
-
-foreach ($data as $year => $value) {
- //echo $year[0].$year[1].$year[2].$year[3].'<br>';
-
-  foreach ($value as $month => $svalue) {
-    //echo $month[0].$month[1].'<br>';
-    
-    foreach ($svalue as $date => $check) {
-      //echo $date[0].$date[1].' : '.$check.'<br>';
-
-      if ($check == 'Checked') {
-          $currentlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
-      }
-
-      if ($nextlottodate == '' and $check == 'New') {
-          $nextlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
-      }
-
-    }
-
-  }
-
+$keycount=0;$valuecount=0;
+foreach ($lottodb as $key => $value) {
+$keycount++;
+if($value !== "") {
+	$valuecount++;
+	}
 }
 
-$nowyear = date('Y');
-$nowmonth = date('m');
-$nowday = date('d');
+$nprize = 174;
 
-$nowmonth = str_pad($nowmonth, 2, '0', STR_PAD_LEFT);
-$nowday = str_pad($nowday, 2, '0', STR_PAD_LEFT);
+if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
-$now = $nowyear.$nowmonth.$nowday;
 
-//$now = '20170119';
+	// Get Lotto Data from Kapook
+	$html = file_get_contents($lottourl);
 
-echo "Today: ".$now."<br>";
+	$begin = strpos($html, '//STARTPRIZE');
+	$end   = strpos($html, '//STOPPRIZE');
 
-if ( $now >= $nextlottodate){
-	echo "Lotto Date: ".$nextlottodate;
+	$GenStr = substr($html, $begin, ($end - $begin));
+
+
+	$begin = strpos($GenStr, '"');
+	$end   = strrpos($GenStr, '""');
+
+	$GenStrVar = substr($GenStr, $begin+1, ($end - $begin)-2);
+
+	//$replyMsg .= $GenStrVar;
+
+	$dom = new DOMDocument();
+	libxml_use_internal_errors(true);
+	$dom->loadHTMLFile($lottourl);
+
+	// เช็คงวด
+	$data = $dom->getElementById('spLottoDate');
+	$kapooklottodate = $data->nodeValue;
+
+
+	$lottodaycheck = substr($lottodate,6,2);
+	$kapookday = intval(substr($kapooklottodate, 0, 2));
+
+	if ($kapookday == $lottodaycheck){
+
+	//งวด
+
+	$data = $dom->getElementById('spLottoDate');
+	$lottofinal['spLottoDate'] = $data->nodeValue;
+
+	// รางวัล
+
+	if(strstr($GenStr,'GenStr=""') or !strstr($html,'GenStr=')){
+
+	$debugmsg .= 'Data: Read Web'.chr(10);
+	// รางวัลที่ 1
+	$data = $dom->getElementById('no1');
+	$lottofinal['no1'] = $data->nodeValue;
+
+	for ($i = 1; $i <= 2; $i++) {
+			$loopkey = 'd3:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//เลขท้าย 3 ตัว
+	for ($i = 3; $i <= 4; $i++) {
+			$loopkey = 'd3:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//เลขท้าย 2 ตัว
+	$data = $dom->getElementById("d2");
+	$lottofinal['d2'] = $data->nodeValue;
+
+	//ใกล้เคียงรางวัลที่ 1
+	for ($i = 1; $i <= 2; $i++) {
+			$loopkey = 'no1nr:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//รางวัลที่ 2
+	for ($i = 1; $i <= 5; $i++) {
+			$loopkey = 'no2:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//รางวัลที่ 3
+	for ($i = 1; $i <= 10; $i++) {
+			$loopkey = 'no3:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//รางวัลที่ 4
+	for ($i = 1; $i <= 50; $i++) {
+			$loopkey = 'no4:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+	//รางวัลที่ 5
+	for ($i = 1; $i <= 100; $i++) {
+			$loopkey = 'no5:'.$i;
+			$data = $dom->getElementById($loopkey);
+			$lottofinal[$loopkey] = $data->nodeValue;
+	}
+
+
+	}else{
+
+		$lottoarr = explode("@", $GenStrVar);
+		$i=0;
+		foreach ($lottoarr as $lotto) {
+			$lottoprize = explode("#", $lotto);
+			$lottofinal[$lottoprize[0]] = $lottoprize[1];
+		}
+
+		$debugmsg .= 'Data: GenStr'.chr(10);
+	}
+
+	$data = json_encode($lottofinal);
+
+	// PUT to Firebase DB
+	curl_setopt( $ch, CURLOPT_URL,$dburl);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+
+	}
+
 }else{
-	echo "Lotto Date: ".$currentlottodate;
+
+	// Read lotto data from DB
+	foreach ($lottodb as $key => $value) {
+		$lottofinal[$key] = $value;
+	}
+	$debugmsg .= 'Data: DB'.chr(10);
+
+	// Gen lottoset table
+	$setyear = substr($lottodate,0,4);
+	$setmonth = substr($lottodate,4,2);
+	$setdate = substr($lottodate,6,2);
+	$uri = 'https://lotto-13fa4.firebaseio.com/lottoset/'.$setyear.'/'.$setmonth.'.json';
+
+	$checked = array($setdate => 'Checked');
+	$setdata = json_encode($checked);
+
+    $setch = curl_init();
+	// PUT to Firebase DB
+	curl_setopt( $setch, CURLOPT_URL,$uri);
+	curl_setopt($setch, CURLOPT_CUSTOMREQUEST, "PATCH");
+	curl_setopt($setch, CURLOPT_POSTFIELDS,$setdata);
+	curl_setopt($setch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($setch);
+	curl_close($setch);
+
+
 }
+ 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$debugmsg .= 'Http Code '.$httpcode.chr(10);
 
-
-/* Get Lotto Date
-$year = 2017;
-$month = 5;
-$day = 18;
-
-if ($month == 1 and $day < 16) {
-  $lottoday = "30";
-  $month = "12";
-  $year = $year-1;
-}elseif ($month == 12 and $day == 31) {
-  $lottoday = "30";
-  $month = "12";
-  $year = $year;
-}else{
-
-if ($day >= 16) {
-  $lottoday = "16";
-}else{
-  $lottoday = "01";
-}
-
-}
-
-$month = str_pad($month, 2, '0', STR_PAD_LEFT);
-
-$currentlottodate = $year.$month.$lottoday;
-
-echo $currentlottodate;
-*/
+	curl_close($ch);
+	echo $lottofinal;
