@@ -29,7 +29,7 @@ $nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
-echo 'kapook';
+
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
 
@@ -57,6 +57,11 @@ echo 'kapook';
 
 	$lottodaycheck = substr($lottodate,6,2);
 	$kapookday = intval(substr($kapooklottodate, 0, 2));
+
+  echo $kapookday;
+  echo '<br>';
+  echo $lottodaycheck;
+  echo '<br>';
 
 	if ($kapookday == $lottodaycheck){
 
