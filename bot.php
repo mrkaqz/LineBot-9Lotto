@@ -4,6 +4,8 @@ $debugmsg = "";
 $replyMsg = "";
 $debugmode = false;
 
+date_default_timezone_set('Asia/Bangkok');
+
 function sendreply($msg,$token,$akey) {
 
 	$messages = [
