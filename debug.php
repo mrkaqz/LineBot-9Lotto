@@ -29,7 +29,7 @@ $nprize = 174;
 
 if ( $keycount !== $nprize or $valuecount !== $nprize) {
 
-
+echo 'kapook';
 	// Get Lotto Data from Kapook
 	$html = file_get_contents($lottourl);
 
