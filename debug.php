@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Asia/Bangkok');
+
 $dburl = 'https://lotto-13fa4.firebaseio.com/lottoset/.json';
 
 
