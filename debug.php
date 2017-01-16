@@ -1,5 +1,9 @@
 <?php
 
+$lottourl = 'http://lottery.kapook.com/';
+$lottodate = '20170117';
+
+
 date_default_timezone_set('Asia/Bangkok');
 
 $dburl = 'https://lotto-13fa4.firebaseio.com/result/lotto'.$lottodate.'.json';
@@ -178,4 +182,4 @@ if ( $keycount !== $nprize or $valuecount !== $nprize) {
 	$debugmsg .= 'Http Code '.$httpcode.chr(10);
 
 	curl_close($ch);
-	echo $lottofinal;
+  var_dump($lottofinal);
