@@ -18,13 +18,13 @@ $data = json_decode($response);
 $nextlottodate = '';
 
 foreach ($data as $year => $value) {
- echo $year[0].$year[1].$year[2].$year[3].'<br>';
+ //echo $year[0].$year[1].$year[2].$year[3].'<br>';
 
   foreach ($value as $month => $svalue) {
-    echo $month[0].$month[1].'<br>';
+    //echo $month[0].$month[1].'<br>';
     
     foreach ($svalue as $date => $check) {
-      echo $date[0].$date[1].' : '.$check.'<br>';
+      //echo $date[0].$date[1].' : '.$check.'<br>';
 
       if ($check == 'Checked') {
           $currentlottodate = $year[0].$year[1].$year[2].$year[3].$month[0].$month[1].$date[0].$date[1];
@@ -49,7 +49,7 @@ $nowday = str_pad($nowday, 2, '0', STR_PAD_LEFT);
 
 $now = $nowyear.$nowmonth.$nowday;
 
-$now = '20170119';
+//$now = '20170119';
 
 echo "Today: ".$now."<br>";
 
