@@ -664,7 +664,7 @@ if (!is_null($events['events'])) {
 		
 		if(strstr($text,"ถูกหวย")){
 
-			$eatword = array(
+			$wword = array(
 				"ไหนๆ ใครถูกหวย ดีใจด้วยยยยยย",
 				"เฮ้ย ถูกหวยเหรอ เลขที่ผมบอกชิมิ",
 				"ถูกหวยยยย เอ้าปิดตลาดฉลองงงงง",
@@ -676,7 +676,7 @@ if (!is_null($events['events'])) {
 				"ถูกหวยกิน หรือ ได้กินหวย!!!"
 			);
 
-			$replyMsg .= $eatword[rand(0,count($eatword)-1)];
+			$replyMsg .= $wword[rand(0,count($wword)-1)];
 
 			//reply back
 			sendreply($replyMsg,$replyToken,$access_token);
